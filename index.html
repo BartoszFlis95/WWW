@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pomoc w wynajmie mieszkania i formalnościach w Holandii i Niemczech. Profesjonalne wsparcie relokacyjne dla emigrantów.">
+    <meta property="og:title" content="NL•DE Relocation - Pomoc w wynajmie i formalnościach">
+    <meta property="og:description" content="Jedna osoba. Dwa kraje. Zero chaosu. Profesjonalne wsparcie relokacyjne w Holandii i Niemczech.">
+    <meta property="og:type" content="website">
+    <title>NL•DE Relocation - Pomoc w wynajmie i formalnościach NL/DE</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #2563eb;
+            --color-primary-dark: #1d4ed8;
+            --color-secondary: #64748b;
+            --color-text: #1e293b;
+            --color-text-light: #64748b;
+            --color-bg: #ffffff;
+            --color-bg-light: #f1f5f9;
+            --color-border: #e2e8f0;
+            --color-success: #10b981;
+            --spacing: 1rem;
+            --max-width: 1200px;
+            --border-radius: 0.5rem;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            transition: var(--transition);
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 0.75rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--color-primary);
+        }
+        
+        .logo img {
+            height: 36px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .logo-text-fallback {
+            display: none;
+        }
+        
+        .logo.load-fallback img {
+            display: none;
+        }
+        
+        .logo.load-fallback .logo-text-fallback {
+            display: inline;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: var(--color-text);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .lang-selector {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+            background: transparent;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            color: var(--color-primary);
+            background: var(--color-bg-light);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-text);
+            transition: var(--transition);
+        }
+        
+        
+        /* Hero */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero > .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--color-text-light);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, #1e40af 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Section */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--color-text);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+            border-radius: 2px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Problem */
+        .problem-list {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: none;
+        }
+        
+        .problem-item {
+            padding: 1.75rem;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, #ffffff 100%);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--color-primary);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+        
+        .problem-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+            border-left-width: 6px;
+        }
+        
+        /* Oferta */
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .offer-card {
+            background: var(--color-bg);
+            border: 2px solid var(--color-border);
+            border-radius: calc(var(--border-radius) + 0.25rem);
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--color-primary);
+        }
+        
+        .offer-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .offer-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+        
+        .offer-price {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .offer-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+        
+        .offer-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .offer-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: bold;
+        }
+        
+        .offer-description {
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Jak to działa */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        
+        .step-card {
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, #ffffff 100%);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            border-color: var(--color-primary);
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .step-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .step-card p {
+            color: var(--color-text-light);
+        }
+        
+        /* Dla kogo */
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .target-card {
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, #ffffff 100%);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .target-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            border-color: var(--color-primary);
+        }
+        
+        .target-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            background: var(--color-bg);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+        
+        .faq-item.active {
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+        
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: var(--color-text-light);
+            padding: 0 1.5rem;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        /* Kontakt */
+        .contact-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-image {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 auto;
+        }
+        
+        .contact-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 1.5rem;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: var(--color-text);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.875rem;
+            border: 2px solid var(--color-border);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-group.checkbox {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .form-group.checkbox input {
+            margin-top: 0.25rem;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        .form-success {
+            display: none;
+            padding: 1.5rem;
+            background: var(--color-success);
+            color: white;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-success.show {
+            display: block;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #25d366;
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+        
+        
+        .phone-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.75rem 3.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--color-bg-light) 100%);
+            border: 3px solid var(--color-primary);
+            border-radius: calc(var(--border-radius) + 0.5rem);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .phone-number:hover {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.5), 0 0 30px rgba(37, 99, 235, 0.3);
+            border-color: var(--color-primary-dark);
+        }
+        
+        .phone-number:active {
+            transform: translateY(-2px) scale(1);
+        }
+        
+        .phone-number-icon {
+            font-size: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                gap: 2.5rem;
+            }
+            
+            .contact-image {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .phone-number {
+                font-size: 1.5rem;
+                padding: 1.5rem 2.5rem;
+                max-width: 100%;
+            }
+            
+            .phone-number-icon {
+                font-size: 1.75rem;
+            }
+        }
+        
+        /* Stopka */
+        .footer {
+            background: linear-gradient(135deg, var(--color-text) 0%, #0f172a 100%);
+            color: #cbd5e1;
+            padding: 4rem 0 1.5rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        }
+        
+        .footer-logo {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-logo img {
+            height: 28px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .footer-logo-text-fallback {
+            display: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: white;
+        }
+        
+        .footer-logo.load-fallback img {
+            display: none;
+        }
+        
+        .footer-logo.load-fallback .footer-logo-text-fallback {
+            display: inline;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            display: block;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 0;
+        }
+        
+        .footer-links a::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 20px;
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        
+        .footer-disclaimer {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Design */
+        
+        /* Tablety (768px - 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .hero {
+                padding: 4rem 0;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .offers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .target-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .offer-card {
+                padding: 2rem;
+            }
+            
+            .step-card,
+            .target-card {
+                padding: 2rem;
+            }
+            
+            .problem-item {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Telefony (< 768px) */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem 0;
+            }
+            
+            .logo img {
+                height: 32px;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--color-bg);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                border-bottom: 1px solid var(--color-border);
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+                margin-bottom: 1rem;
+            }
+            
+            .hero .subtitle {
+                font-size: clamp(1rem, 4vw, 1.25rem);
+                margin-bottom: 2rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 0.875rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                margin-bottom: 2rem;
+            }
+            
+            .offers-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .offer-card {
+                padding: 1.75rem;
+            }
+            
+            .offer-card h3 {
+                font-size: 1.25rem;
+            }
+            
+            .offer-price {
+                font-size: 1.125rem;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .step-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: 1.25rem;
+            }
+            
+            .step-card h3 {
+                font-size: 1.125rem;
+            }
+            
+            .target-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .target-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .target-card h3 {
+                font-size: 1.125rem;
+            }
+            
+            .problem-list {
+                max-width: 100%;
+            }
+            
+            .problem-item {
+                padding: 1.25rem;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-wrapper {
+                gap: 2.5rem;
+            }
+            
+            .contact-image {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .phone-number {
+                font-size: 1.5rem;
+                padding: 1.5rem 2rem;
+                max-width: 100%;
+            }
+            
+            .phone-number-icon {
+                font-size: 1.75rem;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer {
+                padding: 3rem 0 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-logo {
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        /* Małe telefony (< 480px) */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 2.5rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .offer-card,
+            .step-card,
+            .target-card {
+                padding: 1.5rem;
+            }
+            
+            .problem-item {
+                padding: 1rem;
+            }
+            
+            .contact-image {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .phone-number {
+                font-size: 1.25rem;
+                padding: 1.25rem 1.5rem;
+            }
+            
+            .phone-number-icon {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-container">
+            <a href="#home" class="logo" id="navbarLogo" aria-label="NL DE Relocation Home">
+                <img src="assets/logo.png" alt="NL DE Relocation" id="navbarLogoImg">
+                <span class="logo-text-fallback" data-i18n="nav.logo">NL•DE Relocation</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#oferta" data-i18n="nav.offer">Oferta</a></li>
+                <li><a href="#jak-to-dziala" data-i18n="nav.how">Jak to działa</a></li>
+                <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+                <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
+            </ul>
+            <div class="lang-selector">
+                <button class="lang-btn active" data-lang="pl">PL</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="de">DE</button>
+                <button class="lang-btn" data-lang="nl">NL</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 data-i18n="hero.title">Pomoc w wynajmie mieszkania i formalnościach w Holandii i Niemczech</h1>
+            <p class="subtitle" data-i18n="hero.subtitle">Jedna osoba. Dwa kraje. Zero chaosu.</p>
+            <div class="cta-group">
+                <a href="#kontakt" class="btn btn-primary" data-i18n="hero.cta.primary">Umów bezpłatną konsultację</a>
+                <a href="#oferta" class="btn btn-secondary" data-i18n="hero.cta.secondary">Zobacz pakiety</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="problem.title">Z czym możesz mieć problem?</h2>
+            <ul class="problem-list">
+                <li class="problem-item" data-i18n="problem.1">Brak znajomości lokalnego rynku wynajmu i procedur</li>
+                <li class="problem-item" data-i18n="problem.2">Trudności z komunikacją w języku niderlandzkim lub niemieckim</li>
+                <li class="problem-item" data-i18n="problem.3">Skomplikowane formalności przy podłączaniu mediów (prąd, gaz, woda, internet)</li>
+                <li class="problem-item" data-i18n="problem.4">Ryzyko wpłat kaucji i podpisania niekorzystnej umowy</li>
+                <li class="problem-item" data-i18n="problem.5">Brak czasu na załatwienie wszystkich spraw podczas przeprowadzki</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Oferta -->
+    <section class="section" id="oferta" style="background: var(--color-bg-light);">
+        <div class="container">
+            <h2 class="section-title" data-i18n="offer.title">Nasze pakiety</h2>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <h3 data-i18n="offer.package1.title">Mieszkanie do klucza</h3>
+                    <div class="offer-price" data-i18n="offer.package1.price">od 300 €</div>
+                    <p class="offer-description" data-i18n="offer.package1.description">Kompleksowa pomoc w znalezieniu i wynajmie mieszkania z pełnym wsparciem formalnym.</p>
+                    <ul class="offer-features">
+                        <li data-i18n="offer.package1.feature1">Wyszukiwanie mieszkań zgodnych z kryteriami</li>
+                        <li data-i18n="offer.package1.feature2">Kontakt z właścicielami i agencjami</li>
+                        <li data-i18n="offer.package1.feature3">Asysta podczas oględzin</li>
+                        <li data-i18n="offer.package1.feature4">Weryfikacja umowy najmu</li>
+                        <li data-i18n="offer.package1.feature5">Wsparcie przy podpisaniu umowy</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-primary" data-i18n="offer.cta">Zapytaj</a>
+                </div>
+                <div class="offer-card">
+                    <h3 data-i18n="offer.package2.title">Pakiet Start – Media & Umowy</h3>
+                    <div class="offer-price" data-i18n="offer.package2.price">od 150 €</div>
+                    <p class="offer-description" data-i18n="offer.package2.description">Pomoc w załatwieniu mediów i podstawowych formalności po wynajmie mieszkania.</p>
+                    <ul class="offer-features">
+                        <li data-i18n="offer.package2.feature1">Podłączenie prądu, gazu, wody</li>
+                        <li data-i18n="offer.package2.feature2">Wybór i podłączenie internetu</li>
+                        <li data-i18n="offer.package2.feature3">Wsparcie przy rejestracji w gminie</li>
+                        <li data-i18n="offer.package2.feature4">Pomoc z podstawowymi umowami</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-primary" data-i18n="offer.cta">Zapytaj</a>
+                </div>
+                <div class="offer-card">
+                    <h3 data-i18n="offer.package3.title">Relocation Backup (abonament)</h3>
+                    <div class="offer-price" data-i18n="offer.package3.price">od 49 €/mies.</div>
+                    <p class="offer-description" data-i18n="offer.package3.description">Ongoing support i konsultacje w trakcie pierwszych miesięcy po przeprowadzce.</p>
+                    <ul class="offer-features">
+                        <li data-i18n="offer.package3.feature1">Dostęp do konsultacji telefonicznych/email</li>
+                        <li data-i18n="offer.package3.feature2">Pomoc w rozwiązaniu bieżących problemów</li>
+                        <li data-i18n="offer.package3.feature3">Wsparcie przy zmianie umów</li>
+                        <li data-i18n="offer.package3.feature4">Porady dotyczące integracji</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-primary" data-i18n="offer.cta">Zapytaj</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jak to działa -->
+    <section class="section" id="jak-to-dziala">
+        <div class="container">
+            <h2 class="section-title" data-i18n="how.title">Jak to działa?</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 data-i18n="how.step1.title">Kontakt</h3>
+                    <p data-i18n="how.step1.text">Skontaktuj się z nami przez formularz lub WhatsApp</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 data-i18n="how.step2.title">Konsultacja</h3>
+                    <p data-i18n="how.step2.text">Bezpłatna konsultacja, omówienie potrzeb i wybór pakietu</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 data-i18n="how.step3.title">Umowa</h3>
+                    <p data-i18n="how.step3.text">Podpisanie umowy i rozpoczęcie współpracy</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 data-i18n="how.step4.title">Realizacja</h3>
+                    <p data-i18n="how.step4.text">Zaczynamy działać zgodnie z wybranym pakietem</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3 data-i18n="how.step5.title">Komunikacja</h3>
+                    <p data-i18n="how.step5.text">Regularne aktualizacje i wsparcie na każdym etapie</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h3 data-i18n="how.step6.title">Sukces</h3>
+                    <p data-i18n="how.step6.text">Zakończenie z pozytywnym rezultatem</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dla kogo -->
+    <section class="section" style="background: var(--color-bg-light);">
+        <div class="container">
+            <h2 class="section-title" data-i18n="target.title">Dla kogo?</h2>
+            <div class="target-grid">
+                <div class="target-card">
+                    <h3 data-i18n="target.group1.title">Emigranci</h3>
+                    <p data-i18n="target.group1.text">Osoby, które przeprowadzają się do NL lub DE po raz pierwszy</p>
+                </div>
+                <div class="target-card">
+                    <h3 data-i18n="target.group2.title">Profesjonaliści</h3>
+                    <p data-i18n="target.group2.text">Osoby pracujące zdalnie lub z relokacją służbową</p>
+                </div>
+                <div class="target-card">
+                    <h3 data-i18n="target.group3.title">Studenci</h3>
+                    <p data-i18n="target.group3.text">Studenci szukający mieszkania na czas studiów</p>
+                </div>
+                <div class="target-card">
+                    <h3 data-i18n="target.group4.title">Rodziny</h3>
+                    <p data-i18n="target.group4.text">Rodziny z dziećmi potrzebujące wsparcia w relokacji</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-i18n="faq.title">Najczęściej zadawane pytania</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq.q1">Ile czasu zajmuje znalezienie mieszkania?</button>
+                    <div class="faq-answer" data-i18n="faq.a1">Czas zależy od lokalizacji i budżetu. Średnio proces trwa od 2 do 8 tygodni. Będziemy Cię regularnie informować o postępach.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq.q2">Czy gwarantujecie znalezienie mieszkania?</button>
+                    <div class="faq-answer" data-i18n="faq.a2">Nie gwarantujemy znalezienia mieszkania, ale dołożymy wszelkich starań, aby znaleźć odpowiednie rozwiązanie. Nasza usługa to wsparcie doradcze i organizacyjne.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq.q3">Jak wygląda płatność?</button>
+                    <div class="faq-answer" data-i18n="faq.a3">Płatność następuje po podpisaniu umowy. Możemy przyjąć przelew bankowy. Szczegóły omówimy podczas konsultacji.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq.q4">Czy możecie pomóc z dokumentami do wizy?</button>
+                    <div class="faq-answer" data-i18n="faq.a4">Skupiamy się na wsparciu związanym z wynajmem i formalnościami po przyjeździe. Nie pomagamy w procesach wizowych, ale możemy wskazać odpowiednie źródła informacji.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq.q5">Pracujecie tylko w dużych miastach?</button>
+                    <div class="faq-answer" data-i18n="faq.a5">Pracujemy w całej Holandii i Niemczech, również w mniejszych miejscowościach. Zasięg działania omówimy podczas konsultacji.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq.q6">Co jeśli jestem już w NL/DE i mam mieszkanie?</button>
+                    <div class="faq-answer" data-i18n="faq.a6">W takim przypadku idealny będzie Pakiet Start lub Relocation Backup, które pomogą w załatwieniu mediów i bieżących formalności.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="section" id="kontakt" style="background: var(--color-bg-light);">
+        <div class="container">
+            <div class="contact-wrapper">
+                <img src="ja.jpg" alt="Kontakt" class="contact-image">
+                <div class="contact-info">
+                    <a href="tel:+4917670167819" class="phone-number">
+                        <span class="phone-number-icon">📞</span>
+                        <span>+49 176 70167819</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-logo" id="footerLogo">
+                <img src="assets/logo.png" alt="NL DE Relocation" id="footerLogoImg">
+                <span class="footer-logo-text-fallback" data-i18n="nav.logo">NL•DE Relocation</span>
+            </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 data-i18n="footer.about.title">O nas</h4>
+                    <p class="footer-disclaimer" data-i18n="footer.about.disclaimer">Usługa ma charakter doradczy i organizacyjny. Nie jestem stroną w umowie najmu. Nie gwarantuję znalezienia mieszkania, ale dołożę wszelkich starań, aby pomóc w procesie relokacji i załatwieniu formalności.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.links.title">Linki</h4>
+                    <ul class="footer-links">
+                        <li><a href="polityka-prywatnosci.html" data-i18n="footer.links.privacy">Polityka prywatności</a></li>
+                        <li><a href="regulamin.html" data-i18n="footer.links.terms">Regulamin</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">© 2024 NL•DE Relocation. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translations object
+        const translations = {
+            pl: {
+                'nav.logo': 'NL•DE Relocation',
+                'nav.offer': 'Oferta',
+                'nav.how': 'Jak to działa',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Kontakt',
+                'hero.title': 'Pomoc w wynajmie mieszkania i formalnościach w Holandii i Niemczech',
+                'hero.subtitle': 'Jedna osoba. Dwa kraje. Zero chaosu.',
+                'hero.cta.primary': 'Umów bezpłatną konsultację',
+                'hero.cta.secondary': 'Zobacz pakiety',
+                'problem.title': 'Z czym możesz mieć problem?',
+                'problem.1': 'Brak znajomości lokalnego rynku wynajmu i procedur',
+                'problem.2': 'Trudności z komunikacją w języku niderlandzkim lub niemieckim',
+                'problem.3': 'Skomplikowane formalności przy podłączaniu mediów (prąd, gaz, woda, internet)',
+                'problem.4': 'Ryzyko wpłat kaucji i podpisania niekorzystnej umowy',
+                'problem.5': 'Brak czasu na załatwienie wszystkich spraw podczas przeprowadzki',
+                'offer.title': 'Nasze pakiety',
+                'offer.package1.title': 'Mieszkanie do klucza',
+                'offer.package1.price': 'od 300 €',
+                'offer.package1.description': 'Kompleksowa pomoc w znalezieniu i wynajmie mieszkania z pełnym wsparciem formalnym.',
+                'offer.package1.feature1': 'Wyszukiwanie mieszkań zgodnych z kryteriami',
+                'offer.package1.feature2': 'Kontakt z właścicielami i agencjami',
+                'offer.package1.feature3': 'Asysta podczas oględzin',
+                'offer.package1.feature4': 'Weryfikacja umowy najmu',
+                'offer.package1.feature5': 'Wsparcie przy podpisaniu umowy',
+                'offer.package2.title': 'Pakiet Start – Media & Umowy',
+                'offer.package2.price': 'od 150 €',
+                'offer.package2.description': 'Pomoc w załatwieniu mediów i podstawowych formalności po wynajmie mieszkania.',
+                'offer.package2.feature1': 'Podłączenie prądu, gazu, wody',
+                'offer.package2.feature2': 'Wybór i podłączenie internetu',
+                'offer.package2.feature3': 'Wsparcie przy rejestracji w gminie',
+                'offer.package2.feature4': 'Pomoc z podstawowymi umowami',
+                'offer.package3.title': 'Relocation Backup (abonament)',
+                'offer.package3.price': 'od 49 €/mies.',
+                'offer.package3.description': 'Ongoing support i konsultacje w trakcie pierwszych miesięcy po przeprowadzce.',
+                'offer.package3.feature1': 'Dostęp do konsultacji telefonicznych/email',
+                'offer.package3.feature2': 'Pomoc w rozwiązaniu bieżących problemów',
+                'offer.package3.feature3': 'Wsparcie przy zmianie umów',
+                'offer.package3.feature4': 'Porady dotyczące integracji',
+                'offer.cta': 'Zapytaj',
+                'how.title': 'Jak to działa?',
+                'how.step1.title': 'Kontakt',
+                'how.step1.text': 'Skontaktuj się z nami przez formularz lub WhatsApp',
+                'how.step2.title': 'Konsultacja',
+                'how.step2.text': 'Bezpłatna konsultacja, omówienie potrzeb i wybór pakietu',
+                'how.step3.title': 'Umowa',
+                'how.step3.text': 'Podpisanie umowy i rozpoczęcie współpracy',
+                'how.step4.title': 'Realizacja',
+                'how.step4.text': 'Zaczynamy działać zgodnie z wybranym pakietem',
+                'how.step5.title': 'Komunikacja',
+                'how.step5.text': 'Regularne aktualizacje i wsparcie na każdym etapie',
+                'how.step6.title': 'Sukces',
+                'how.step6.text': 'Zakończenie z pozytywnym rezultatem',
+                'target.title': 'Dla kogo?',
+                'target.group1.title': 'Emigranci',
+                'target.group1.text': 'Osoby, które przeprowadzają się do NL lub DE po raz pierwszy',
+                'target.group2.title': 'Profesjonaliści',
+                'target.group2.text': 'Osoby pracujące zdalnie lub z relokacją służbową',
+                'target.group3.title': 'Studenci',
+                'target.group3.text': 'Studenci szukający mieszkania na czas studiów',
+                'target.group4.title': 'Rodziny',
+                'target.group4.text': 'Rodziny z dziećmi potrzebujące wsparcia w relokacji',
+                'faq.title': 'Najczęściej zadawane pytania',
+                'faq.q1': 'Ile czasu zajmuje znalezienie mieszkania?',
+                'faq.a1': 'Czas zależy od lokalizacji i budżetu. Średnio proces trwa od 2 do 8 tygodni. Będziemy Cię regularnie informować o postępach.',
+                'faq.q2': 'Czy gwarantujecie znalezienie mieszkania?',
+                'faq.a2': 'Nie gwarantujemy znalezienia mieszkania, ale dołożymy wszelkich starań, aby znaleźć odpowiednie rozwiązanie. Nasza usługa to wsparcie doradcze i organizacyjne.',
+                'faq.q3': 'Jak wygląda płatność?',
+                'faq.a3': 'Płatność następuje po podpisaniu umowy. Możemy przyjąć przelew bankowy. Szczegóły omówimy podczas konsultacji.',
+                'faq.q4': 'Czy możecie pomóc z dokumentami do wizy?',
+                'faq.a4': 'Skupiamy się na wsparciu związanym z wynajmem i formalnościami po przyjeździe. Nie pomagamy w procesach wizowych, ale możemy wskazać odpowiednie źródła informacji.',
+                'faq.q5': 'Pracujecie tylko w dużych miastach?',
+                'faq.a5': 'Pracujemy w całej Holandii i Niemczech, również w mniejszych miejscowościach. Zasięg działania omówimy podczas konsultacji.',
+                'faq.q6': 'Co jeśli jestem już w NL/DE i mam mieszkanie?',
+                'faq.a6': 'W takim przypadku idealny będzie Pakiet Start lub Relocation Backup, które pomogą w załatwieniu mediów i bieżących formalności.',
+                'contact.title': 'Skontaktuj się z nami',
+                'contact.success': 'Dziękuję! Odezwiemy się.',
+                'contact.form.name': 'Imię',
+                'contact.form.name.placeholder': 'Twoje imię',
+                'contact.form.name.error': 'To pole jest wymagane',
+                'contact.form.email': 'Email',
+                'contact.form.email.placeholder': 'twoj@email.pl',
+                'contact.form.email.error': 'Podaj prawidłowy adres email',
+                'contact.form.country': 'Kraj',
+                'contact.form.country.placeholder': 'Wybierz kraj',
+                'contact.form.country.nl': 'Holandia',
+                'contact.form.country.de': 'Niemcy',
+                'contact.form.country.error': 'Wybierz kraj',
+                'contact.form.message': 'Wiadomość',
+                'contact.form.message.placeholder': 'Opisz swoje potrzeby...',
+                'contact.form.message.error': 'To pole jest wymagane',
+                'contact.form.rodo': 'Akceptuję politykę prywatności i wyrażam zgodę na przetwarzanie danych osobowych',
+                'contact.form.rodo.error': 'Musisz zaakceptować politykę prywatności',
+                'contact.form.submit': 'Wyślij wiadomość',
+                'contact.whatsapp': 'Napisz do nas na WhatsApp',
+                'footer.about.title': 'O nas',
+                'footer.about.disclaimer': 'Usługa ma charakter doradczy i organizacyjny. Nie jestem stroną w umowie najmu. Nie gwarantuję znalezienia mieszkania, ale dołożę wszelkich starań, aby pomóc w procesie relokacji i załatwieniu formalności.',
+                'footer.links.title': 'Linki',
+                'footer.links.privacy': 'Polityka prywatności',
+                'footer.links.terms': 'Regulamin',
+                'footer.copyright': '© 2024 NL•DE Relocation. Wszelkie prawa zastrzeżone.',
+                'privacy.title': '📄 POLITYKA PRYWATNOŚCI (RODO)',
+                'privacy.subtitle': 'Polityka prywatności',
+                'privacy.admin.title': 'Administrator danych',
+                'privacy.admin.text': 'Administratorem danych osobowych jest:<br><strong>Bartosz Szymon Flis</strong><br>Kontakt: e-mail / WhatsApp (zgodnie z danymi podanymi na stronie)',
+                'privacy.data.title': 'Zakres zbieranych danych',
+                'privacy.data.intro': 'Przetwarzane mogą być następujące dane:',
+                'privacy.data.item1': 'imię i nazwisko',
+                'privacy.data.item2': 'adres e-mail',
+                'privacy.data.item3': 'numer telefonu (WhatsApp)',
+                'privacy.data.item4': 'kraj (NL / DE)',
+                'privacy.data.item5': 'treść wiadomości',
+                'privacy.data.item6': 'adres IP (logi serwera)',
+                'privacy.purpose.title': 'Cel przetwarzania danych',
+                'privacy.purpose.intro': 'Dane przetwarzane są w celu:',
+                'privacy.purpose.item1': 'kontaktu z użytkownikiem',
+                'privacy.purpose.item2': 'udzielenia odpowiedzi na zapytanie',
+                'privacy.purpose.item3': 'przygotowania informacji o oferowanych usługach',
+                'privacy.purpose.item4': 'realizacji usług doradczych i administracyjnych',
+                'privacy.legal.title': 'Podstawa prawna przetwarzania',
+                'privacy.legal.text': 'Dane przetwarzane są na podstawie:',
+                'privacy.legal.item1': 'art. 6 ust. 1 lit. b RODO (działania przed zawarciem umowy)',
+                'privacy.legal.item2': 'art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes administratora)',
+                'privacy.retention.title': 'Okres przechowywania danych',
+                'privacy.retention.text': 'Dane przechowywane są przez okres nie dłuższy niż 24 miesiące lub do momentu zgłoszenia żądania ich usunięcia.',
+                'privacy.recipients.title': 'Odbiorcy danych',
+                'privacy.recipients.text': 'Dane mogą być przekazywane wyłącznie podmiotom technicznym obsługującym stronę (hosting, poczta e-mail). Dane nie są sprzedawane ani udostępniane osobom trzecim.',
+                'privacy.rights.title': 'Prawa użytkownika',
+                'privacy.rights.text': 'Użytkownik ma prawo do:',
+                'privacy.rights.item1': 'dostępu do danych',
+                'privacy.rights.item2': 'ich poprawiania',
+                'privacy.rights.item3': 'usunięcia',
+                'privacy.rights.item4': 'ograniczenia przetwarzania',
+                'privacy.rights.item5': 'wniesienia sprzeciwu',
+                'privacy.contact.title': 'Kontakt w sprawach RODO',
+                'privacy.contact.text': 'W sprawach dotyczących danych osobowych należy kontaktować się poprzez e-mail podany na stronie.',
+                'terms.title': '📄 REGULAMIN ŚWIADCZENIA USŁUG',
+                'terms.subtitle': 'Regulamin',
+                'terms.nature.title': 'Charakter usługi',
+                'terms.nature.text': 'Usługi świadczone przez Bartosz Szymon Flis mają charakter doradczy, informacyjny i administracyjny w zakresie wsparcia przy wynajmie nieruchomości oraz relokacji.',
+                'terms.scope.title': 'Zakres usług',
+                'terms.scope.intro': 'Zakres usług może obejmować m.in.:',
+                'terms.scope.item1': 'pomoc w wyszukiwaniu ofert najmu',
+                'terms.scope.item2': 'wsparcie komunikacyjne',
+                'terms.scope.item3': 'pomoc organizacyjną przy formalnościach',
+                'terms.scope.item4': 'wsparcie informacyjne po zawarciu umowy',
+                'terms.disclaimer.title': 'Wyłączenia odpowiedzialności',
+                'terms.disclaimer.intro': 'Usługodawca:',
+                'terms.disclaimer.item1': 'nie jest stroną umów najmu',
+                'terms.disclaimer.item2': 'nie działa jako pośrednik nieruchomości (Makler)',
+                'terms.disclaimer.item3': 'nie gwarantuje znalezienia mieszkania',
+                'terms.disclaimer.item4': 'nie ponosi odpowiedzialności za decyzje właścicieli nieruchomości lub agencji',
+                'terms.decisions.title': 'Decyzje stron trzecich',
+                'terms.decisions.intro': 'Decyzje dotyczące:',
+                'terms.decisions.item1': 'wyboru najemcy',
+                'terms.decisions.item2': 'warunków umowy',
+                'terms.decisions.item3': 'ceny',
+                'terms.decisions.item4': 'stanu nieruchomości',
+                'terms.decisions.text': 'należą wyłącznie do właścicieli nieruchomości lub agencji.',
+                'terms.payment.title': 'Płatności',
+                'terms.payment.text': 'Szczegóły dotyczące wynagrodzenia ustalane są indywidualnie przed rozpoczęciem usługi.',
+                'terms.complaints.title': 'Reklamacje',
+                'terms.complaints.text': 'Reklamacje można składać drogą elektroniczną. Odpowiedź udzielana jest w terminie do 14 dni.',
+                'terms.final.title': 'Postanowienia końcowe',
+                'terms.final.text': 'Regulamin obowiązuje od dnia publikacji na stronie internetowej.'
+            },
+            en: {
+                'nav.logo': 'NL•DE Relocation',
+                'nav.offer': 'Offers',
+                'nav.how': 'How it works',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contact',
+                'hero.title': 'Help with apartment rental and formalities in the Netherlands and Germany',
+                'hero.subtitle': 'One person. Two countries. Zero chaos.',
+                'hero.cta.primary': 'Book a free consultation',
+                'hero.cta.secondary': 'View packages',
+                'problem.title': 'What problems might you face?',
+                'problem.1': 'Lack of knowledge of the local rental market and procedures',
+                'problem.2': 'Communication difficulties in Dutch or German',
+                'problem.3': 'Complicated formalities when connecting utilities (electricity, gas, water, internet)',
+                'problem.4': 'Risk of deposits and signing unfavorable contracts',
+                'problem.5': 'Lack of time to handle everything during the move',
+                'offer.title': 'Our packages',
+                'offer.package1.title': 'Turnkey apartment',
+                'offer.package1.price': 'from €300',
+                'offer.package1.description': 'Comprehensive help in finding and renting an apartment with full formal support.',
+                'offer.package1.feature1': 'Search for apartments matching criteria',
+                'offer.package1.feature2': 'Contact with landlords and agencies',
+                'offer.package1.feature3': 'Assistance during viewings',
+                'offer.package1.feature4': 'Lease agreement verification',
+                'offer.package1.feature5': 'Support with contract signing',
+                'offer.package2.title': 'Start Package – Utilities & Contracts',
+                'offer.package2.price': 'from €150',
+                'offer.package2.description': 'Help with utilities and basic formalities after renting an apartment.',
+                'offer.package2.feature1': 'Connection of electricity, gas, water',
+                'offer.package2.feature2': 'Internet selection and connection',
+                'offer.package2.feature3': 'Support with municipality registration',
+                'offer.package2.feature4': 'Help with basic contracts',
+                'offer.package3.title': 'Relocation Backup (subscription)',
+                'offer.package3.price': 'from €49/month',
+                'offer.package3.description': 'Ongoing support and consultations during the first months after relocation.',
+                'offer.package3.feature1': 'Access to phone/email consultations',
+                'offer.package3.feature2': 'Help solving current problems',
+                'offer.package3.feature3': 'Support with contract changes',
+                'offer.package3.feature4': 'Integration advice',
+                'offer.cta': 'Inquire',
+                'how.title': 'How it works?',
+                'how.step1.title': 'Contact',
+                'how.step1.text': 'Contact us via form or WhatsApp',
+                'how.step2.title': 'Consultation',
+                'how.step2.text': 'Free consultation, discussion of needs and package selection',
+                'how.step3.title': 'Contract',
+                'how.step3.text': 'Signing the contract and starting cooperation',
+                'how.step4.title': 'Implementation',
+                'how.step4.text': 'We start working according to the selected package',
+                'how.step5.title': 'Communication',
+                'how.step5.text': 'Regular updates and support at every stage',
+                'how.step6.title': 'Success',
+                'how.step6.text': 'Completion with a positive result',
+                'target.title': 'For whom?',
+                'target.group1.title': 'Emigrants',
+                'target.group1.text': 'People moving to NL or DE for the first time',
+                'target.group2.title': 'Professionals',
+                'target.group2.text': 'People working remotely or with business relocation',
+                'target.group3.title': 'Students',
+                'target.group3.text': 'Students looking for accommodation during studies',
+                'target.group4.title': 'Families',
+                'target.group4.text': 'Families with children needing relocation support',
+                'faq.title': 'Frequently asked questions',
+                'faq.q1': 'How long does it take to find an apartment?',
+                'faq.a1': 'Time depends on location and budget. On average, the process takes 2 to 8 weeks. We will keep you regularly informed about progress.',
+                'faq.q2': 'Do you guarantee finding an apartment?',
+                'faq.a2': 'We do not guarantee finding an apartment, but we will do our best to find a suitable solution. Our service is advisory and organizational support.',
+                'faq.q3': 'How does payment work?',
+                'faq.a3': 'Payment follows after signing the contract. We can accept bank transfer. Details will be discussed during consultation.',
+                'faq.q4': 'Can you help with visa documents?',
+                'faq.a4': 'We focus on support related to rental and formalities after arrival. We do not help with visa processes, but we can point to appropriate information sources.',
+                'faq.q5': 'Do you work only in large cities?',
+                'faq.a5': 'We work throughout the Netherlands and Germany, including smaller towns. The scope of operation will be discussed during consultation.',
+                'faq.q6': 'What if I am already in NL/DE and have an apartment?',
+                'faq.a6': 'In such a case, the Start Package or Relocation Backup would be ideal, which will help with utilities and current formalities.',
+                'contact.title': 'Contact us',
+                'contact.success': 'Thank you! We will get back to you.',
+                'contact.form.name': 'Name',
+                'contact.form.name.placeholder': 'Your name',
+                'contact.form.name.error': 'This field is required',
+                'contact.form.email': 'Email',
+                'contact.form.email.placeholder': 'your@email.com',
+                'contact.form.email.error': 'Please enter a valid email address',
+                'contact.form.country': 'Country',
+                'contact.form.country.placeholder': 'Select country',
+                'contact.form.country.nl': 'Netherlands',
+                'contact.form.country.de': 'Germany',
+                'contact.form.country.error': 'Please select a country',
+                'contact.form.message': 'Message',
+                'contact.form.message.placeholder': 'Describe your needs...',
+                'contact.form.message.error': 'This field is required',
+                'contact.form.rodo': 'I accept the privacy policy and consent to the processing of personal data',
+                'contact.form.rodo.error': 'You must accept the privacy policy',
+                'contact.form.submit': 'Send message',
+                'contact.whatsapp': 'Write to us on WhatsApp',
+                'footer.about.title': 'About us',
+                'footer.about.disclaimer': 'The service is advisory and organizational in nature. I am not a party to the rental agreement. I do not guarantee finding an apartment, but I will make every effort to help with the relocation process and handling formalities.',
+                'footer.links.title': 'Links',
+                'footer.links.privacy': 'Privacy policy',
+                'footer.links.terms': 'Terms and conditions',
+                'footer.copyright': '© 2024 NL•DE Relocation. All rights reserved.',
+                'privacy.title': '📄 PRIVACY POLICY (GDPR)',
+                'privacy.subtitle': 'Privacy policy',
+                'privacy.admin.title': 'Data controller',
+                'privacy.admin.text': 'The data controller is:<br><strong>Bartosz Szymon Flis</strong><br>Contact: e-mail / WhatsApp (as provided on the website)',
+                'privacy.data.title': 'Scope of collected data',
+                'privacy.data.intro': 'The following data may be processed:',
+                'privacy.data.item1': 'first and last name',
+                'privacy.data.item2': 'e-mail address',
+                'privacy.data.item3': 'phone number (WhatsApp)',
+                'privacy.data.item4': 'country (NL / DE)',
+                'privacy.data.item5': 'message content',
+                'privacy.data.item6': 'IP address (server logs)',
+                'privacy.purpose.title': 'Purpose of data processing',
+                'privacy.purpose.intro': 'Data is processed for the purpose of:',
+                'privacy.purpose.item1': 'contacting the user',
+                'privacy.purpose.item2': 'responding to inquiries',
+                'privacy.purpose.item3': 'preparing information about offered services',
+                'privacy.purpose.item4': 'providing advisory and administrative services',
+                'privacy.legal.title': 'Legal basis for processing',
+                'privacy.legal.text': 'Data is processed on the basis of:',
+                'privacy.legal.item1': 'Art. 6(1)(b) GDPR (actions before contract conclusion)',
+                'privacy.legal.item2': 'Art. 6(1)(f) GDPR (legitimate interest of the controller)',
+                'privacy.retention.title': 'Data retention period',
+                'privacy.retention.text': 'Data is stored for a period not longer than 24 months or until a request for deletion is submitted.',
+                'privacy.recipients.title': 'Data recipients',
+                'privacy.recipients.text': 'Data may be transferred only to technical entities operating the website (hosting, e-mail). Data is not sold or shared with third parties.',
+                'privacy.rights.title': 'User rights',
+                'privacy.rights.text': 'The user has the right to:',
+                'privacy.rights.item1': 'access to data',
+                'privacy.rights.item2': 'rectification',
+                'privacy.rights.item3': 'erasure',
+                'privacy.rights.item4': 'restriction of processing',
+                'privacy.rights.item5': 'objection',
+                'privacy.contact.title': 'GDPR contact',
+                'privacy.contact.text': 'For matters regarding personal data, please contact via e-mail provided on the website.',
+                'terms.title': '📄 TERMS OF SERVICE',
+                'terms.subtitle': 'Terms and conditions',
+                'terms.nature.title': 'Nature of service',
+                'terms.nature.text': 'Services provided by Bartosz Szymon Flis are advisory, informational and administrative in nature, regarding support for property rental and relocation.',
+                'terms.scope.title': 'Scope of services',
+                'terms.scope.intro': 'The scope of services may include:',
+                'terms.scope.item1': 'assistance in searching for rental offers',
+                'terms.scope.item2': 'communication support',
+                'terms.scope.item3': 'organizational assistance with formalities',
+                'terms.scope.item4': 'informational support after contract conclusion',
+                'terms.disclaimer.title': 'Limitation of liability',
+                'terms.disclaimer.intro': 'The service provider:',
+                'terms.disclaimer.item1': 'is not a party to rental agreements',
+                'terms.disclaimer.item2': 'does not act as a real estate broker (Makler)',
+                'terms.disclaimer.item3': 'does not guarantee finding an apartment',
+                'terms.disclaimer.item4': 'is not responsible for decisions of property owners or agencies',
+                'terms.decisions.title': 'Third-party decisions',
+                'terms.decisions.intro': 'Decisions regarding:',
+                'terms.decisions.item1': 'tenant selection',
+                'terms.decisions.item2': 'contract terms',
+                'terms.decisions.item3': 'price',
+                'terms.decisions.item4': 'property condition',
+                'terms.decisions.text': 'belong solely to property owners or agencies.',
+                'terms.payment.title': 'Payments',
+                'terms.payment.text': 'Details regarding remuneration are determined individually before service commencement.',
+                'terms.complaints.title': 'Complaints',
+                'terms.complaints.text': 'Complaints can be submitted electronically. Response is provided within 14 days.',
+                'terms.final.title': 'Final provisions',
+                'terms.final.text': 'These terms and conditions are effective from the date of publication on the website.'
+            },
+            de: {
+                'nav.logo': 'NL•DE Relocation',
+                'nav.offer': 'Angebote',
+                'nav.how': 'Wie es funktioniert',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Kontakt',
+                'hero.title': 'Hilfe bei Wohnungsmiete und Formalitäten in den Niederlanden und Deutschland',
+                'hero.subtitle': 'Eine Person. Zwei Länder. Null Chaos.',
+                'hero.cta.primary': 'Kostenlose Beratung vereinbaren',
+                'hero.cta.secondary': 'Pakete ansehen',
+                'problem.title': 'Welche Probleme könnten Sie haben?',
+                'problem.1': 'Fehlende Kenntnisse des lokalen Mietmarktes und der Verfahren',
+                'problem.2': 'Kommunikationsschwierigkeiten auf Niederländisch oder Deutsch',
+                'problem.3': 'Komplizierte Formalitäten bei der Anschluss von Versorgungsleistungen (Strom, Gas, Wasser, Internet)',
+                'problem.4': 'Risiko von Kautionen und Unterzeichnung ungünstiger Verträge',
+                'problem.5': 'Keine Zeit, alles während des Umzugs zu erledigen',
+                'offer.title': 'Unsere Pakete',
+                'offer.package1.title': 'Schlüsselfertige Wohnung',
+                'offer.package1.price': 'ab 300 €',
+                'offer.package1.description': 'Umfassende Hilfe bei der Suche und Miete einer Wohnung mit voller formaler Unterstützung.',
+                'offer.package1.feature1': 'Suche nach Wohnungen nach Kriterien',
+                'offer.package1.feature2': 'Kontakt zu Vermietern und Agenturen',
+                'offer.package1.feature3': 'Begleitung bei Besichtigungen',
+                'offer.package1.feature4': 'Überprüfung des Mietvertrags',
+                'offer.package1.feature5': 'Unterstützung bei Vertragsunterzeichnung',
+                'offer.package2.title': 'Starter-Paket – Versorgungsleistungen & Verträge',
+                'offer.package2.price': 'ab 150 €',
+                'offer.package2.description': 'Hilfe bei Versorgungsleistungen und grundlegenden Formalitäten nach Wohnungsmiete.',
+                'offer.package2.feature1': 'Anschluss von Strom, Gas, Wasser',
+                'offer.package2.feature2': 'Internetauswahl und -anschluss',
+                'offer.package2.feature3': 'Unterstützung bei Gemeinderegistrierung',
+                'offer.package2.feature4': 'Hilfe bei grundlegenden Verträgen',
+                'offer.package3.title': 'Relocation Backup (Abonnement)',
+                'offer.package3.price': 'ab 49 €/Monat',
+                'offer.package3.description': 'Laufende Unterstützung und Beratungen in den ersten Monaten nach dem Umzug.',
+                'offer.package3.feature1': 'Zugang zu telefonischen/E-Mail-Beratungen',
+                'offer.package3.feature2': 'Hilfe bei der Lösung aktueller Probleme',
+                'offer.package3.feature3': 'Unterstützung bei Vertragsänderungen',
+                'offer.package3.feature4': 'Integrationsberatung',
+                'offer.cta': 'Anfragen',
+                'how.title': 'Wie funktioniert es?',
+                'how.step1.title': 'Kontakt',
+                'how.step1.text': 'Kontaktieren Sie uns über das Formular oder WhatsApp',
+                'how.step2.title': 'Beratung',
+                'how.step2.text': 'Kostenlose Beratung, Besprechung der Bedürfnisse und Paketauswahl',
+                'how.step3.title': 'Vertrag',
+                'how.step3.text': 'Unterzeichnung des Vertrags und Beginn der Zusammenarbeit',
+                'how.step4.title': 'Umsetzung',
+                'how.step4.text': 'Wir beginnen gemäß dem gewählten Paket zu arbeiten',
+                'how.step5.title': 'Kommunikation',
+                'how.step5.text': 'Regelmäßige Updates und Unterstützung in jeder Phase',
+                'how.step6.title': 'Erfolg',
+                'how.step6.text': 'Abschluss mit positivem Ergebnis',
+                'target.title': 'Für wen?',
+                'target.group1.title': 'Emigranten',
+                'target.group1.text': 'Personen, die zum ersten Mal nach NL oder DE ziehen',
+                'target.group2.title': 'Profis',
+                'target.group2.text': 'Personen, die remote arbeiten oder mit Geschäftsumzug',
+                'target.group3.title': 'Studenten',
+                'target.group3.text': 'Studenten, die eine Unterkunft für das Studium suchen',
+                'target.group4.title': 'Familien',
+                'target.group4.text': 'Familien mit Kindern, die Unterstützung beim Umzug benötigen',
+                'faq.title': 'Häufig gestellte Fragen',
+                'faq.q1': 'Wie lange dauert es, eine Wohnung zu finden?',
+                'faq.a1': 'Die Zeit hängt von Standort und Budget ab. Im Durchschnitt dauert der Prozess 2 bis 8 Wochen. Wir informieren Sie regelmäßig über den Fortschritt.',
+                'faq.q2': 'Garantieren Sie, eine Wohnung zu finden?',
+                'faq.a2': 'Wir garantieren nicht, eine Wohnung zu finden, aber wir werden unser Bestes tun, um eine geeignete Lösung zu finden. Unser Service ist beratende und organisatorische Unterstützung.',
+                'faq.q3': 'Wie funktioniert die Zahlung?',
+                'faq.a3': 'Die Zahlung erfolgt nach Vertragsunterzeichnung. Wir akzeptieren Banküberweisung. Details werden während der Beratung besprochen.',
+                'faq.q4': 'Können Sie bei Visadokumenten helfen?',
+                'faq.a4': 'Wir konzentrieren uns auf Unterstützung im Zusammenhang mit Miete und Formalitäten nach der Ankunft. Wir helfen nicht bei Visaverfahren, können aber auf geeignete Informationsquellen hinweisen.',
+                'faq.q5': 'Arbeiten Sie nur in Großstädten?',
+                'faq.a5': 'Wir arbeiten in ganz Niederlande und Deutschland, auch in kleineren Städten. Der Umfang wird während der Beratung besprochen.',
+                'faq.q6': 'Was, wenn ich bereits in NL/DE bin und eine Wohnung habe?',
+                'faq.a6': 'In diesem Fall wäre das Starter-Paket oder Relocation Backup ideal, das bei Versorgungsleistungen und aktuellen Formalitäten hilft.',
+                'contact.title': 'Kontaktieren Sie uns',
+                'contact.success': 'Vielen Dank! Wir melden uns bei Ihnen.',
+                'contact.form.name': 'Name',
+                'contact.form.name.placeholder': 'Ihr Name',
+                'contact.form.name.error': 'Dieses Feld ist erforderlich',
+                'contact.form.email': 'E-Mail',
+                'contact.form.email.placeholder': 'ihre@email.de',
+                'contact.form.email.error': 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
+                'contact.form.country': 'Land',
+                'contact.form.country.placeholder': 'Land auswählen',
+                'contact.form.country.nl': 'Niederlande',
+                'contact.form.country.de': 'Deutschland',
+                'contact.form.country.error': 'Bitte wählen Sie ein Land',
+                'contact.form.message': 'Nachricht',
+                'contact.form.message.placeholder': 'Beschreiben Sie Ihre Bedürfnisse...',
+                'contact.form.message.error': 'Dieses Feld ist erforderlich',
+                'contact.form.rodo': 'Ich akzeptiere die Datenschutzrichtlinie und stimme der Verarbeitung personenbezogener Daten zu',
+                'contact.form.rodo.error': 'Sie müssen die Datenschutzrichtlinie akzeptieren',
+                'contact.form.submit': 'Nachricht senden',
+                'contact.whatsapp': 'Schreiben Sie uns auf WhatsApp',
+                'footer.about.title': 'Über uns',
+                'footer.about.disclaimer': 'Der Service ist beratender und organisatorischer Natur. Ich bin nicht Vertragspartei des Mietvertrags. Ich garantiere nicht, eine Wohnung zu finden, aber ich werde mich bemühen, beim Umzugsprozess und bei Formalitäten zu helfen.',
+                'footer.links.title': 'Links',
+                'footer.links.privacy': 'Datenschutzrichtlinie',
+                'footer.links.terms': 'Nutzungsbedingungen',
+                'footer.copyright': '© 2024 NL•DE Relocation. Alle Rechte vorbehalten.',
+                'privacy.title': '📄 DATENSCHUTZERKLÄRUNG (DSGVO)',
+                'privacy.subtitle': 'Datenschutzerklärung',
+                'privacy.admin.title': 'Datenverantwortlicher',
+                'privacy.admin.text': 'Der Datenverantwortliche ist:<br><strong>Bartosz Szymon Flis</strong><br>Kontakt: E-Mail / WhatsApp (gemäß den auf der Website angegebenen Daten)',
+                'privacy.data.title': 'Umfang der erfassten Daten',
+                'privacy.data.intro': 'Folgende Daten können verarbeitet werden:',
+                'privacy.data.item1': 'Vor- und Nachname',
+                'privacy.data.item2': 'E-Mail-Adresse',
+                'privacy.data.item3': 'Telefonnummer (WhatsApp)',
+                'privacy.data.item4': 'Land (NL / DE)',
+                'privacy.data.item5': 'Nachrichteninhalt',
+                'privacy.data.item6': 'IP-Adresse (Server-Logs)',
+                'privacy.purpose.title': 'Zweck der Datenverarbeitung',
+                'privacy.purpose.intro': 'Daten werden verarbeitet für:',
+                'privacy.purpose.item1': 'Kontaktaufnahme mit dem Nutzer',
+                'privacy.purpose.item2': 'Beantwortung von Anfragen',
+                'privacy.purpose.item3': 'Vorbereitung von Informationen über angebotene Dienstleistungen',
+                'privacy.purpose.item4': 'Erbringung von Beratungs- und Verwaltungsdienstleistungen',
+                'privacy.legal.title': 'Rechtsgrundlage der Verarbeitung',
+                'privacy.legal.text': 'Daten werden verarbeitet auf Grundlage von:',
+                'privacy.legal.item1': 'Art. 6 Abs. 1 lit. b DSGVO (Maßnahmen vor Vertragsschluss)',
+                'privacy.legal.item2': 'Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse des Verantwortlichen)',
+                'privacy.retention.title': 'Speicherdauer',
+                'privacy.retention.text': 'Daten werden für einen Zeitraum von nicht mehr als 24 Monaten oder bis zur Anforderung der Löschung gespeichert.',
+                'privacy.recipients.title': 'Datenempfänger',
+                'privacy.recipients.text': 'Daten können nur an technische Stellen weitergegeben werden, die die Website betreiben (Hosting, E-Mail). Daten werden nicht verkauft oder an Dritte weitergegeben.',
+                'privacy.rights.title': 'Rechte des Nutzers',
+                'privacy.rights.text': 'Der Nutzer hat das Recht auf:',
+                'privacy.rights.item1': 'Zugang zu Daten',
+                'privacy.rights.item2': 'Berichtigung',
+                'privacy.rights.item3': 'Löschung',
+                'privacy.rights.item4': 'Einschränkung der Verarbeitung',
+                'privacy.rights.item5': 'Widerspruch',
+                'privacy.contact.title': 'Kontakt in DSGVO-Angelegenheiten',
+                'privacy.contact.text': 'Bei Fragen zu personenbezogenen Daten kontaktieren Sie bitte per E-Mail, wie auf der Website angegeben.',
+                'terms.title': '📄 NUTZUNGSBEDINGUNGEN',
+                'terms.subtitle': 'Nutzungsbedingungen',
+                'terms.nature.title': 'Art der Dienstleistung',
+                'terms.nature.text': 'Die von Bartosz Szymon Flis erbrachten Dienstleistungen sind beratender, informativer und administrativer Natur im Bereich der Unterstützung bei der Immobilienvermietung und Umzug.',
+                'terms.scope.title': 'Umfang der Dienstleistungen',
+                'terms.scope.intro': 'Der Umfang der Dienstleistungen kann umfassen:',
+                'terms.scope.item1': 'Hilfe bei der Suche nach Mietangeboten',
+                'terms.scope.item2': 'Kommunikationsunterstützung',
+                'terms.scope.item3': 'organisatorische Hilfe bei Formalitäten',
+                'terms.scope.item4': 'informative Unterstützung nach Vertragsabschluss',
+                'terms.disclaimer.title': 'Haftungsausschluss',
+                'terms.disclaimer.intro': 'Der Dienstleister:',
+                'terms.disclaimer.item1': 'ist nicht Vertragspartei von Mietverträgen',
+                'terms.disclaimer.item2': 'handelt nicht als Immobilienmakler (Makler)',
+                'terms.disclaimer.item3': 'garantiert nicht die Wohnungsfindung',
+                'terms.disclaimer.item4': 'übernimmt keine Verantwortung für Entscheidungen von Immobilieneigentümern oder Agenturen',
+                'terms.decisions.title': 'Entscheidungen Dritter',
+                'terms.decisions.intro': 'Entscheidungen bezüglich:',
+                'terms.decisions.item1': 'Mieterauswahl',
+                'terms.decisions.item2': 'Vertragsbedingungen',
+                'terms.decisions.item3': 'Preis',
+                'terms.decisions.item4': 'Zustand der Immobilie',
+                'terms.decisions.text': 'liegen ausschließlich bei den Immobilieneigentümern oder Agenturen.',
+                'terms.payment.title': 'Zahlungen',
+                'terms.payment.text': 'Details zur Vergütung werden individuell vor Beginn der Dienstleistung festgelegt.',
+                'terms.complaints.title': 'Beschwerden',
+                'terms.complaints.text': 'Beschwerden können elektronisch eingereicht werden. Die Antwort erfolgt innerhalb von 14 Tagen.',
+                'terms.final.title': 'Schlussbestimmungen',
+                'terms.final.text': 'Diese Nutzungsbedingungen gelten ab dem Datum der Veröffentlichung auf der Website.'
+            },
+            nl: {
+                'nav.logo': 'NL•DE Relocation',
+                'nav.offer': 'Aanbiedingen',
+                'nav.how': 'Hoe het werkt',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contact',
+                'hero.title': 'Hulp bij het huren van een woning en formaliteiten in Nederland en Duitsland',
+                'hero.subtitle': 'Eén persoon. Twee landen. Geen chaos.',
+                'hero.cta.primary': 'Plan een gratis consultatie',
+                'hero.cta.secondary': 'Bekijk pakketten',
+                'problem.title': 'Waar kunt u problemen mee hebben?',
+                'problem.1': 'Gebrek aan kennis van de lokale huurmarkt en procedures',
+                'problem.2': 'Communicatieproblemen in het Nederlands of Duits',
+                'problem.3': 'Gecompliceerde formaliteiten bij aansluiting van nutsvoorzieningen (stroom, gas, water, internet)',
+                'problem.4': 'Risico op borg en het ondertekenen van ongunstige contracten',
+                'problem.5': 'Geen tijd om alles te regelen tijdens de verhuizing',
+                'offer.title': 'Onze pakketten',
+                'offer.package1.title': 'Sleutelklaar appartement',
+                'offer.package1.price': 'vanaf €300',
+                'offer.package1.description': 'Uitgebreide hulp bij het vinden en huren van een appartement met volledige formele ondersteuning.',
+                'offer.package1.feature1': 'Zoeken naar appartementen die aan criteria voldoen',
+                'offer.package1.feature2': 'Contact met verhuurders en makelaars',
+                'offer.package1.feature3': 'Bijstand tijdens bezichtigingen',
+                'offer.package1.feature4': 'Verificatie van huurcontract',
+                'offer.package1.feature5': 'Ondersteuning bij contractondertekening',
+                'offer.package2.title': 'Startpakket – Nutsvoorzieningen & Contracten',
+                'offer.package2.price': 'vanaf €150',
+                'offer.package2.description': 'Hulp bij nutsvoorzieningen en basisformaliteiten na het huren van een appartement.',
+                'offer.package2.feature1': 'Aansluiting van stroom, gas, water',
+                'offer.package2.feature2': 'Internetselectie en -aansluiting',
+                'offer.package2.feature3': 'Ondersteuning bij gemeenteregistratie',
+                'offer.package2.feature4': 'Hulp met basiscontracten',
+                'offer.package3.title': 'Relocation Backup (abonnement)',
+                'offer.package3.price': 'vanaf €49/maand',
+                'offer.package3.description': 'Voortdurende ondersteuning en consultaties tijdens de eerste maanden na verhuizing.',
+                'offer.package3.feature1': 'Toegang tot telefonische/e-mailconsultaties',
+                'offer.package3.feature2': 'Hulp bij het oplossen van huidige problemen',
+                'offer.package3.feature3': 'Ondersteuning bij contractwijzigingen',
+                'offer.package3.feature4': 'Integratieadvies',
+                'offer.cta': 'Informeren',
+                'how.title': 'Hoe werkt het?',
+                'how.step1.title': 'Contact',
+                'how.step1.text': 'Neem contact met ons op via het formulier of WhatsApp',
+                'how.step2.title': 'Consultatie',
+                'how.step2.text': 'Gratis consultatie, bespreking van behoeften en pakketselectie',
+                'how.step3.title': 'Contract',
+                'how.step3.text': 'Ondertekening van het contract en start van samenwerking',
+                'how.step4.title': 'Implementatie',
+                'how.step4.text': 'We beginnen te werken volgens het gekozen pakket',
+                'how.step5.title': 'Communicatie',
+                'how.step5.text': 'Regelmatige updates en ondersteuning in elke fase',
+                'how.step6.title': 'Succes',
+                'how.step6.text': 'Voltooiing met positief resultaat',
+                'target.title': 'Voor wie?',
+                'target.group1.title': 'Emigranten',
+                'target.group1.text': 'Mensen die voor het eerst naar NL of DE verhuizen',
+                'target.group2.title': 'Professionals',
+                'target.group2.text': 'Mensen die op afstand werken of met zakelijke verhuizing',
+                'target.group3.title': 'Studenten',
+                'target.group3.text': 'Studenten die een accommodatie zoeken tijdens hun studie',
+                'target.group4.title': 'Gezinnen',
+                'target.group4.text': 'Gezinnen met kinderen die ondersteuning bij verhuizing nodig hebben',
+                'faq.title': 'Veelgestelde vragen',
+                'faq.q1': 'Hoe lang duurt het om een appartement te vinden?',
+                'faq.a1': 'De tijd hangt af van locatie en budget. Gemiddeld duurt het proces 2 tot 8 weken. We houden u regelmatig op de hoogte van de voortgang.',
+                'faq.q2': 'Garanderen jullie het vinden van een appartement?',
+                'faq.a2': 'We garanderen niet het vinden van een appartement, maar we doen ons best om een geschikte oplossing te vinden. Onze service is adviserende en organisatorische ondersteuning.',
+                'faq.q3': 'Hoe werkt de betaling?',
+                'faq.a3': 'Betaling volgt na ondertekening van het contract. We accepteren bankoverschrijving. Details worden besproken tijdens consultatie.',
+                'faq.q4': 'Kunnen jullie helpen met visumdocumenten?',
+                'faq.a4': 'We richten ons op ondersteuning met betrekking tot verhuur en formaliteiten na aankomst. We helpen niet bij visumprocessen, maar kunnen wijzen op geschikte informatiebronnen.',
+                'faq.q5': 'Werken jullie alleen in grote steden?',
+                'faq.a5': 'We werken in heel Nederland en Duitsland, ook in kleinere plaatsen. Het bereik wordt besproken tijdens consultatie.',
+                'faq.q6': 'Wat als ik al in NL/DE ben en een appartement heb?',
+                'faq.a6': 'In dat geval zou het Startpakket of Relocation Backup ideaal zijn, wat helpt bij nutsvoorzieningen en huidige formaliteiten.',
+                'contact.title': 'Neem contact met ons op',
+                'contact.success': 'Bedankt! We nemen contact met u op.',
+                'contact.form.name': 'Naam',
+                'contact.form.name.placeholder': 'Uw naam',
+                'contact.form.name.error': 'Dit veld is verplicht',
+                'contact.form.email': 'E-mail',
+                'contact.form.email.placeholder': 'uw@email.nl',
+                'contact.form.email.error': 'Voer een geldig e-mailadres in',
+                'contact.form.country': 'Land',
+                'contact.form.country.placeholder': 'Selecteer land',
+                'contact.form.country.nl': 'Nederland',
+                'contact.form.country.de': 'Duitsland',
+                'contact.form.country.error': 'Selecteer een land',
+                'contact.form.message': 'Bericht',
+                'contact.form.message.placeholder': 'Beschrijf uw behoeften...',
+                'contact.form.message.error': 'Dit veld is verplicht',
+                'contact.form.rodo': 'Ik accepteer het privacybeleid en geef toestemming voor de verwerking van persoonsgegevens',
+                'contact.form.rodo.error': 'U moet het privacybeleid accepteren',
+                'contact.form.submit': 'Bericht versturen',
+                'contact.whatsapp': 'Schrijf ons op WhatsApp',
+                'footer.about.title': 'Over ons',
+                'footer.about.disclaimer': 'De service is adviserend en organisatorisch van aard. Ik ben geen partij bij de huurovereenkomst. Ik garandeer niet het vinden van een appartement, maar ik zal mijn best doen om te helpen bij het verhuisproces en het afhandelen van formaliteiten.',
+                'footer.links.title': 'Links',
+                'footer.links.privacy': 'Privacybeleid',
+                'footer.links.terms': 'Algemene voorwaarden',
+                'footer.copyright': '© 2024 NL•DE Relocation. Alle rechten voorbehouden.',
+                'privacy.title': '📄 PRIVACYBELEID (AVG)',
+                'privacy.subtitle': 'Privacybeleid',
+                'privacy.admin.title': 'Gegevensbeheerder',
+                'privacy.admin.text': 'De gegevensbeheerder is:<br><strong>Bartosz Szymon Flis</strong><br>Contact: e-mail / WhatsApp (volgens de gegevens op de website)',
+                'privacy.data.title': 'Omvang van verzamelde gegevens',
+                'privacy.data.intro': 'De volgende gegevens kunnen worden verwerkt:',
+                'privacy.data.item1': 'voor- en achternaam',
+                'privacy.data.item2': 'e-mailadres',
+                'privacy.data.item3': 'telefoonnummer (WhatsApp)',
+                'privacy.data.item4': 'land (NL / DE)',
+                'privacy.data.item5': 'berichtinhoud',
+                'privacy.data.item6': 'IP-adres (serverlogs)',
+                'privacy.purpose.title': 'Doel van gegevensverwerking',
+                'privacy.purpose.intro': 'Gegevens worden verwerkt voor:',
+                'privacy.purpose.item1': 'contact met de gebruiker',
+                'privacy.purpose.item2': 'beantwoording van vragen',
+                'privacy.purpose.item3': 'voorbereiding van informatie over aangeboden diensten',
+                'privacy.purpose.item4': 'verlening van advies- en administratieve diensten',
+                'privacy.legal.title': 'Rechtsgrondslag voor verwerking',
+                'privacy.legal.text': 'Gegevens worden verwerkt op basis van:',
+                'privacy.legal.item1': 'Art. 6 lid 1 sub b AVG (handelingen vóór contractsluiting)',
+                'privacy.legal.item2': 'Art. 6 lid 1 sub f AVG (gerechtvaardigd belang van de beheerder)',
+                'privacy.retention.title': 'Bewaartermijn',
+                'privacy.retention.text': 'Gegevens worden bewaard voor een periode van niet langer dan 24 maanden of tot het moment van verzoek tot verwijdering.',
+                'privacy.recipients.title': 'Gegevensontvangers',
+                'privacy.recipients.text': 'Gegevens kunnen alleen worden doorgegeven aan technische entiteiten die de website beheren (hosting, e-mail). Gegevens worden niet verkocht of gedeeld met derden.',
+                'privacy.rights.title': 'Rechten van de gebruiker',
+                'privacy.rights.text': 'De gebruiker heeft het recht op:',
+                'privacy.rights.item1': 'toegang tot gegevens',
+                'privacy.rights.item2': 'rectificatie',
+                'privacy.rights.item3': 'verwijdering',
+                'privacy.rights.item4': 'beperking van verwerking',
+                'privacy.rights.item5': 'bezwaar',
+                'privacy.contact.title': 'Contact voor AVG-zaken',
+                'privacy.contact.text': 'Voor vragen over persoonsgegevens kunt u contact opnemen via e-mail zoals vermeld op de website.',
+                'terms.title': '📄 ALGEMENE VOORWAARDEN',
+                'terms.subtitle': 'Algemene voorwaarden',
+                'terms.nature.title': 'Aard van de dienst',
+                'terms.nature.text': 'Diensten verleend door Bartosz Szymon Flis zijn adviserend, informatief en administratief van aard op het gebied van ondersteuning bij woninghuur en verhuizing.',
+                'terms.scope.title': 'Omvang van diensten',
+                'terms.scope.intro': 'De omvang van diensten kan omvatten:',
+                'terms.scope.item1': 'hulp bij het zoeken naar huuraanbiedingen',
+                'terms.scope.item2': 'communicatieondersteuning',
+                'terms.scope.item3': 'organisatorische hulp bij formaliteiten',
+                'terms.scope.item4': 'informatieve ondersteuning na contractsluiting',
+                'terms.disclaimer.title': 'Aansprakelijkheidsuitsluiting',
+                'terms.disclaimer.intro': 'De dienstverlener:',
+                'terms.disclaimer.item1': 'is geen partij bij huurovereenkomsten',
+                'terms.disclaimer.item2': 'handelt niet als makelaar',
+                'terms.disclaimer.item3': 'garandeert niet het vinden van een woning',
+                'terms.disclaimer.item4': 'is niet verantwoordelijk voor beslissingen van woningeigenaren of makelaarskantoren',
+                'terms.decisions.title': 'Beslissingen van derden',
+                'terms.decisions.intro': 'Beslissingen met betrekking tot:',
+                'terms.decisions.item1': 'huurderkeuze',
+                'terms.decisions.item2': 'contractvoorwaarden',
+                'terms.decisions.item3': 'prijs',
+                'terms.decisions.item4': 'staat van de woning',
+                'terms.decisions.text': 'liggen uitsluitend bij woningeigenaren of makelaarskantoren.',
+                'terms.payment.title': 'Betalingen',
+                'terms.payment.text': 'Details met betrekking tot vergoeding worden individueel bepaald vóór aanvang van de dienst.',
+                'terms.complaints.title': 'Klachten',
+                'terms.complaints.text': 'Klachten kunnen elektronisch worden ingediend. Antwoord wordt gegeven binnen 14 dagen.',
+                'terms.final.title': 'Slotbepalingen',
+                'terms.final.text': 'Deze algemene voorwaarden zijn van kracht vanaf de datum van publicatie op de website.'
+            }
+        };
+
+        // Language detection and setting
+        function detectLanguage() {
+            const stored = localStorage.getItem('lang');
+            if (stored && translations[stored]) {
+                return stored;
+            }
+            const browserLang = navigator.language.toLowerCase();
+            if (browserLang.startsWith('de')) return 'de';
+            if (browserLang.startsWith('nl')) return 'nl';
+            if (browserLang.startsWith('en')) return 'en';
+            return 'pl';
+        }
+
+        // Set language function
+        function setLang(lang) {
+            if (!translations[lang]) return;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+            
+            // Update all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    // Use innerHTML for elements that may contain HTML (p, h3, etc.)
+                    if (el.tagName === 'P' || el.tagName === 'H3' || el.tagName === 'H2' || el.tagName === 'LI') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        // Logo fallback handler
+        function handleLogoFallback(img, container, fallbackClass) {
+            img.addEventListener('error', () => {
+                container.classList.add(fallbackClass);
+            });
+            // Check if image loaded successfully
+            if (img.complete && img.naturalHeight === 0) {
+                container.classList.add(fallbackClass);
+            }
+        }
+        
+        // Initialize logo fallbacks
+        const navbarLogo = document.getElementById('navbarLogo');
+        const navbarLogoImg = document.getElementById('navbarLogoImg');
+        const footerLogo = document.getElementById('footerLogo');
+        const footerLogoImg = document.getElementById('footerLogoImg');
+        
+        if (navbarLogo && navbarLogoImg) {
+            handleLogoFallback(navbarLogoImg, navbarLogo, 'load-fallback');
+        }
+        if (footerLogo && footerLogoImg) {
+            handleLogoFallback(footerLogoImg, footerLogo, 'load-fallback');
+        }
+        
+        // Initialize language on load
+        const initialLang = detectLanguage();
+        setLang(initialLang);
+
+        // Language switcher
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLang(btn.dataset.lang);
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuToggle?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const isExpanded = navMenu.classList.contains('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question?.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
+
