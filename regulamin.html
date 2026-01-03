@@ -8,156 +8,147 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #2563eb;
-            --color-text: #1e293b;
-            --color-text-light: #64748b;
-            --color-bg: #ffffff;
-            --color-bg-light: #f8fafc;
-            --color-border: #e2e8f0;
-            --spacing: 1rem;
-            --max-width: 900px;
-            --border-radius: 0.5rem;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.8;
-            color: var(--color-text);
-            background-color: var(--color-bg-light);
-        }
-        
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 2rem var(--spacing);
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--color-primary);
-            text-decoration: none;
-            margin-bottom: 2rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .back-link:hover {
-            gap: 0.75rem;
-        }
-        
-        .document {
-            background: var(--color-bg);
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--color-text);
-        }
-        
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--color-text);
-            border-bottom: 2px solid var(--color-border);
-            padding-bottom: 0.5rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-            color: var(--color-text);
-        }
-        
-        ul {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-            color: var(--color-text);
-        }
-        
-        @media (max-width: 768px) {
-            .document {
-                padding: 2rem 1.5rem;
-            }
-            
-            h1 {
-                font-size: 1.75rem;
-            }
-            
-            h2 {
-                font-size: 1.25rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">← Powrót do strony głównej</a>
-        
-        <div class="document">
-            <h1>📄 REGULAMIN ŚWIADCZENIA USŁUG</h1>
-            <h2>Regulamin</h2>
-            
-            <h2>Charakter usługi</h2>
-            <p>Usługi świadczone przez Bartosz Szymon Flis mają charakter doradczy, informacyjny i administracyjny w zakresie wsparcia przy wynajmie nieruchomości oraz relokacji.</p>
-            
-            <h2>Zakres usług</h2>
-            <p>Zakres usług może obejmować m.in.:</p>
-            <ul>
-                <li>pomoc w wyszukiwaniu ofert najmu</li>
-                <li>wsparcie komunikacyjne</li>
-                <li>pomoc organizacyjną przy formalnościach</li>
-                <li>wsparcie informacyjne po zawarciu umowy</li>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" aria-label="NL DE Relocation Home">
+                <img src="assets/logo.png" alt="NL DE Relocation">
+                <span class="logo-text-fallback">NL•DE Relocation</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#oferta">Oferta</a></li>
+                <li><a href="wynajmujacy.html">Dla właścicieli</a></li>
+                <li><a href="index.html#jak-to-dziala">Jak to działa</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
             </ul>
-            
-            <h2>Wyłączenia odpowiedzialności</h2>
-            <p>Usługodawca:</p>
-            <ul>
-                <li>nie jest stroną umów najmu</li>
-                <li>nie działa jako pośrednik nieruchomości (Makler)</li>
-                <li>nie gwarantuje znalezienia mieszkania</li>
-                <li>nie ponosi odpowiedzialności za decyzje właścicieli nieruchomości lub agencji</li>
-            </ul>
-            
-            <h2>Decyzje stron trzecich</h2>
-            <p>Decyzje dotyczące:</p>
-            <ul>
-                <li>wyboru najemcy</li>
-                <li>warunków umowy</li>
-                <li>ceny</li>
-                <li>stanu nieruchomości</li>
-            </ul>
-            <p>należą wyłącznie do właścicieli nieruchomości lub agencji.</p>
-            
-            <h2>Płatności</h2>
-            <p>Szczegóły dotyczące wynagrodzenia ustalane są indywidualnie przed rozpoczęciem usługi.</p>
-            
-            <h2>Reklamacje</h2>
-            <p>Reklamacje można składać drogą elektroniczną. Odpowiedź udzielana jest w terminie do 14 dni.</p>
-            
-            <h2>Postanowienia końcowe</h2>
-            <p>Regulamin obowiązuje od dnia publikacji na stronie internetowej.</p>
+            <div class="lang-selector">
+                <button class="lang-btn active" type="button">PL</button>
+                <button class="lang-btn" type="button">EN</button>
+                <button class="lang-btn" type="button">DE</button>
+                <button class="lang-btn" type="button">NL</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </div>
+    </nav>
+
+    <section class="section section-document">
+        <div class="container">
+            <a href="index.html" class="back-link">← Powrót do strony głównej</a>
+
+            <div class="document-card">
+                <h1>📄 REGULAMIN ŚWIADCZENIA USŁUG</h1>
+                <h2>Regulamin</h2>
+
+                <h2>Charakter usługi</h2>
+                <p>Usługi świadczone przez Bartosz Szymon Flis mają charakter doradczy, informacyjny i administracyjny w zakresie wsparcia przy wynajmie nieruchomości oraz relokacji.</p>
+
+                <h2>Zakres usług</h2>
+                <p>Zakres usług może obejmować m.in.:</p>
+                <ul>
+                    <li>pomoc w wyszukiwaniu ofert najmu</li>
+                    <li>wsparcie komunikacyjne</li>
+                    <li>pomoc organizacyjną przy formalnościach</li>
+                    <li>wsparcie informacyjne po zawarciu umowy</li>
+                </ul>
+
+                <h2>Wyłączenia odpowiedzialności</h2>
+                <p>Usługodawca:</p>
+                <ul>
+                    <li>nie jest stroną umów najmu</li>
+                    <li>nie działa jako pośrednik nieruchomości (Makler)</li>
+                    <li>nie gwarantuje znalezienia mieszkania</li>
+                    <li>nie ponosi odpowiedzialności za decyzje właścicieli nieruchomości lub agencji</li>
+                </ul>
+
+                <h2>Decyzje stron trzecich</h2>
+                <p>Decyzje dotyczące:</p>
+                <ul>
+                    <li>wyboru najemcy</li>
+                    <li>warunków umowy</li>
+                    <li>ceny</li>
+                    <li>stanu nieruchomości</li>
+                </ul>
+                <p>należą wyłącznie do właścicieli nieruchomości lub agencji.</p>
+
+                <h2>Płatności</h2>
+                <p>Szczegóły dotyczące wynagrodzenia ustalane są indywidualnie przed rozpoczęciem usługi.</p>
+
+                <h2>Reklamacje</h2>
+                <p>Reklamacje można składać drogą elektroniczną. Odpowiedź udzielana jest w terminie do 14 dni.</p>
+
+                <h2>Postanowienia końcowe</h2>
+                <p>Regulamin obowiązuje od dnia publikacji na stronie internetowej.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="kontakt" style="background: var(--color-bg-light);">
+        <div class="container">
+            <div class="contact-wrapper">
+                <img src="ja.jpg" alt="Kontakt" class="contact-image">
+                <div class="contact-info">
+                    <a href="tel:+4917670167819" class="contact-link phone-number">
+                        <span class="phone-number-icon">📞</span>
+                        <span>+49 176 70167819</span>
+                    </a>
+                    <a href="mailto:kontakt@nlderelocation.com" class="contact-link contact-email">
+                        <span class="phone-number-icon">✉️</span>
+                        <span>kontakt@nlderelocation.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="assets/logo.png" alt="NL DE Relocation">
+                <span class="footer-logo-text-fallback">NL•DE Relocation</span>
+            </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>O nas</h4>
+                    <p class="footer-disclaimer">Usługa ma charakter doradczy i organizacyjny. Nie jestem stroną w umowie najmu. Nie gwarantuję znalezienia mieszkania, ale dołożę wszelkich starań, aby pomóc w procesie relokacji i załatwieniu formalności.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Linki</h4>
+                    <ul class="footer-links">
+                        <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+                        <li><a href="regulamin.html">Regulamin</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 NL•DE Relocation. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const isExpanded = navMenu.classList.contains('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 </body>
 </html>
 
