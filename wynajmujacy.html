@@ -248,6 +248,31 @@
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, #1e40af 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
         /* Problem */
         .problem-list {
             max-width: 800px;
@@ -589,6 +614,12 @@
             .hero .subtitle {
                 font-size: clamp(1rem, 4vw, 1.25rem);
                 margin-bottom: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 0.875rem 1.5rem;
+                font-size: 0.95rem;
             }
 
             .section {
