@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesteś wynajmującym? - NL•DE Relocation</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #2563eb;
+            --color-primary-dark: #1d4ed8;
+            --color-secondary: #64748b;
+            --color-text: #1e293b;
+            --color-text-light: #64748b;
+            --color-bg: #ffffff;
+            --color-bg-light: #f1f5f9;
+            --color-border: #e2e8f0;
+            --spacing: 1rem;
+            --max-width: 1200px;
+            --border-radius: 0.5rem;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: #f8fafc;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .section-lead {
+            color: var(--color-text-light);
+            max-width: 720px;
+            font-size: 1.05rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--color-primary);
+        }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--color-text);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .lang-selector {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+            background: transparent;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            color: var(--color-primary);
+            background: var(--color-bg-light);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-text);
+            transition: var(--transition);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 0 4rem;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 680px;
+            color: var(--color-text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .card {
+            background: var(--color-bg);
+            border-radius: var(--border-radius);
+            padding: 1.75rem;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
+        }
+
+        .card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .list {
+            display: grid;
+            gap: 0.75rem;
+            padding-left: 1.5rem;
+        }
+
+        .list li {
+            color: var(--color-text);
+        }
+
+        /* Pricing */
+        .price-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .price-card {
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            background: var(--color-bg);
+        }
+
+        .price-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            color: var(--color-text);
+        }
+
+        /* Contact */
+        .contact-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-image {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: var(--color-text);
+            background: var(--color-bg-light);
+            padding: 0.75rem 1rem;
+            border-radius: 999px;
+        }
+
+        .contact-item span {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            margin-top: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #cbd5f5;
+        }
+
+        .footer-disclaimer,
+        .footer-legal {
+            color: #cbd5f5;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-legal {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                width: 100%;
+                max-width: 320px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                padding: 3rem 0;
+            }
+
+            .contact-wrapper {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .contact-item {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" aria-label="NL DE Relocation Home">
+                <img src="logo.png" alt="NL DE Relocation">
+                <span data-i18n="nav.logo">NL•DE Relocation</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#oferta" data-i18n="nav.offer">Oferta</a></li>
+                <li><a href="index.html#jak-to-dziala" data-i18n="nav.how">Jak to działa</a></li>
+                <li><a href="index.html#faq" data-i18n="nav.faq">FAQ</a></li>
+                <li><a href="wynajmujacy.html" data-i18n="nav.landlord">Jesteś wynajmującym?</a></li>
+                <li><a href="index.html#kontakt" data-i18n="nav.contact">Kontakt</a></li>
+            </ul>
+            <div class="lang-selector">
+                <button class="lang-btn active" data-lang="pl">PL</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="de">DE</button>
+                <button class="lang-btn" data-lang="nl">NL</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1 data-i18n="hero.title">Masz mieszkanie na wynajem?</h1>
+            <p data-i18n="hero.intro">Jeśli chcesz znaleźć odpowiedniego lokatora i mieć pewność, że kandydat spełnia Twoje oczekiwania, mogę w tym pomóc. Pracuję szybko, jasno przedstawiam rekomendacje i dbam o sprawną komunikację między stronami.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="help.title">Jak mogę pomóc</h2>
+            <ul class="list">
+                <li data-i18n="help.item1">Selekcja kandydatów na podstawie Twoich kryteriów.</li>
+                <li data-i18n="help.item2">Weryfikacja dokumentów i zgodności z wymaganiami najmu.</li>
+                <li data-i18n="help.item3">Przekazanie krótkiego podsumowania i rekomendacji najlepszych kandydatów.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--color-bg-light);">
+        <div class="container">
+            <h2 class="section-title" data-i18n="how.title">Jak to działa</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3 data-i18n="how.step1.title">1. Ustalamy potrzeby</h3>
+                    <p data-i18n="how.step1.text">Wspólnie doprecyzowujemy typ najmu, lokalizację i oczekiwania wobec lokatora.</p>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="how.step2.title">2. Selekcja kandydatów</h3>
+                    <p data-i18n="how.step2.text">Sprawdzam zgłoszenia i kompletuję krótką listę dopasowanych osób.</p>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="how.step3.title">3. Rekomendacja</h3>
+                    <p data-i18n="how.step3.text">Otrzymujesz zestawienie kandydatów wraz z rekomendacją i najważniejszymi informacjami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="fees.title">Wynagrodzenie</h2>
+            <p class="section-lead" data-i18n="fees.text">Nie pobieram prowizji od czynszu ani kaucji. Wynagrodzenie jest stałe i nie zależy od tego, czy dojdzie do podpisania umowy.</p>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--color-bg-light);">
+        <div class="container">
+            <h2 class="section-title" data-i18n="info.title">Ważne informacje</h2>
+            <ul class="list">
+                <li data-i18n="info.item1">Ostateczna decyzja o wyborze lokatora należy do właściciela.</li>
+                <li data-i18n="info.item2">Rekomendacje są przygotowywane na podstawie informacji dostarczonych przez kandydatów.</li>
+                <li data-i18n="info.item3">Usługa nie obejmuje podpisywania umów ani reprezentowania stron.</li>
+            </ul>
+            <p class="section-lead" data-i18n="info.note">Wsparcie ma charakter informacyjno-doradczy i pomaga w uporządkowaniu procesu najmu.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="pricing.title">Cennik – selekcja i polecenie kandydata</h2>
+            <div class="price-grid">
+                <div class="price-card">
+                    <h3>BASIC</h3>
+                    <div class="price">200 €</div>
+                    <p data-i18n="pricing.basic">Wstępna selekcja kandydatów na podstawie przesłanych kryteriów i dokumentów.</p>
+                </div>
+                <div class="price-card">
+                    <h3>STANDARD</h3>
+                    <div class="price">300 €</div>
+                    <p data-i18n="pricing.standard">Selekcja kandydatów wraz z krótkimi rozmowami i podsumowaniem dla właściciela.</p>
+                </div>
+                <div class="price-card">
+                    <h3>PREMIUM</h3>
+                    <div class="price">400 €</div>
+                    <p data-i18n="pricing.premium">Rozszerzona selekcja z dodatkowymi rekomendacjami i wsparciem w ustaleniu kolejnych kroków.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="kontakt" style="background: var(--color-bg-light);">
+        <div class="container">
+            <div class="contact-wrapper">
+                <img src="ja.jpg" alt="Kontakt" class="contact-image">
+                <div class="contact-info">
+                    <h3 data-i18n="contact.title">Kontakt</h3>
+                    <a class="contact-item" href="tel:+4917670167819">
+                        <span>📞</span>
+                        <span data-i18n="contact.phone">+49 176 70167819</span>
+                    </a>
+                    <a class="contact-item" href="mailto:kontakt@deneeu.pl">
+                        <span>✉️</span>
+                        <span data-i18n="contact.email">kontakt@deneeu.pl</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="info-box" data-i18n="disclaimer">
+                Deneeu nie jest agencją nieruchomości i nie świadczy usług pośrednictwa. Decyzja o wynajmie należy wyłącznie do właściciela.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 data-i18n="footer.about.title">O nas</h4>
+                    <p class="footer-disclaimer" data-i18n="footer.about.disclaimer">Usługa ma charakter doradczy i organizacyjny. Nie jestem stroną w umowie najmu. Nie gwarantuję znalezienia mieszkania, ale dołożę wszelkich starań, aby pomóc w procesie relokacji i załatwieniu formalności.</p>
+                    <p class="footer-legal" data-i18n="footer.legal">Deneeu nie jest agencją nieruchomości i nie świadczy usług pośrednictwa. Decyzja o wynajmie należy wyłącznie do właściciela.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.links.title">Linki</h4>
+                    <ul class="footer-links">
+                        <li><a href="polityka-prywatnosci.html" data-i18n="footer.links.privacy">Polityka prywatności</a></li>
+                        <li><a href="regulamin.html" data-i18n="footer.links.terms">Regulamin</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">© 2024 NL•DE Relocation. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            pl: {
+                'nav.logo': 'NL•DE Relocation',
+                'nav.offer': 'Oferta',
+                'nav.how': 'Jak to działa',
+                'nav.faq': 'FAQ',
+                'nav.landlord': 'Jesteś wynajmującym?',
+                'nav.contact': 'Kontakt',
+                'hero.title': 'Masz mieszkanie na wynajem?',
+                'hero.intro': 'Jeśli chcesz znaleźć odpowiedniego lokatora i mieć pewność, że kandydat spełnia Twoje oczekiwania, mogę w tym pomóc. Pracuję szybko, jasno przedstawiam rekomendacje i dbam o sprawną komunikację między stronami.',
+                'help.title': 'Jak mogę pomóc',
+                'help.item1': 'Selekcja kandydatów na podstawie Twoich kryteriów.',
+                'help.item2': 'Weryfikacja dokumentów i zgodności z wymaganiami najmu.',
+                'help.item3': 'Przekazanie krótkiego podsumowania i rekomendacji najlepszych kandydatów.',
+                'how.title': 'Jak to działa',
+                'how.step1.title': '1. Ustalamy potrzeby',
+                'how.step1.text': 'Wspólnie doprecyzowujemy typ najmu, lokalizację i oczekiwania wobec lokatora.',
+                'how.step2.title': '2. Selekcja kandydatów',
+                'how.step2.text': 'Sprawdzam zgłoszenia i kompletuję krótką listę dopasowanych osób.',
+                'how.step3.title': '3. Rekomendacja',
+                'how.step3.text': 'Otrzymujesz zestawienie kandydatów wraz z rekomendacją i najważniejszymi informacjami.',
+                'fees.title': 'Wynagrodzenie',
+                'fees.text': 'Nie pobieram prowizji od czynszu ani kaucji. Wynagrodzenie jest stałe i nie zależy od tego, czy dojdzie do podpisania umowy.',
+                'info.title': 'Ważne informacje',
+                'info.item1': 'Ostateczna decyzja o wyborze lokatora należy do właściciela.',
+                'info.item2': 'Rekomendacje są przygotowywane na podstawie informacji dostarczonych przez kandydatów.',
+                'info.item3': 'Usługa nie obejmuje podpisywania umów ani reprezentowania stron.',
+                'info.note': 'Wsparcie ma charakter informacyjno-doradczy i pomaga w uporządkowaniu procesu najmu.',
+                'pricing.title': 'Cennik – selekcja i polecenie kandydata',
+                'pricing.basic': 'Wstępna selekcja kandydatów na podstawie przesłanych kryteriów i dokumentów.',
+                'pricing.standard': 'Selekcja kandydatów wraz z krótkimi rozmowami i podsumowaniem dla właściciela.',
+                'pricing.premium': 'Rozszerzona selekcja z dodatkowymi rekomendacjami i wsparciem w ustaleniu kolejnych kroków.',
+                'contact.title': 'Kontakt',
+                'contact.phone': '+49 176 70167819',
+                'contact.email': 'kontakt@deneeu.pl',
+                'disclaimer': 'Deneeu nie jest agencją nieruchomości i nie świadczy usług pośrednictwa. Decyzja o wynajmie należy wyłącznie do właściciela.',
+                'footer.about.title': 'O nas',
+                'footer.about.disclaimer': 'Usługa ma charakter doradczy i organizacyjny. Nie jestem stroną w umowie najmu. Nie gwarantuję znalezienia mieszkania, ale dołożę wszelkich starań, aby pomóc w procesie relokacji i załatwieniu formalności.',
+                'footer.links.title': 'Linki',
+                'footer.links.privacy': 'Polityka prywatności',
+                'footer.links.terms': 'Regulamin',
+                'footer.legal': 'Deneeu nie jest agencją nieruchomości i nie świadczy usług pośrednictwa. Decyzja o wynajmie należy wyłącznie do właściciela.',
+                'footer.copyright': '© 2024 NL•DE Relocation. Wszelkie prawa zastrzeżone.'
+            },
+            en: {
+                'nav.logo': 'NL•DE Relocation',
+                'nav.offer': 'Offers',
+                'nav.how': 'How it works',
+                'nav.faq': 'FAQ',
+                'nav.landlord': 'Are you a landlord?',
+                'nav.contact': 'Contact',
+                'hero.title': 'Do you have an apartment for rent?',
+                'hero.intro': 'If you want to find the right tenant and be sure the candidate meets your expectations, I can help. I work quickly, provide clear recommendations, and keep communication between parties smooth.',
+                'help.title': 'How I can help',
+                'help.item1': 'Candidate screening based on your criteria.',
+                'help.item2': 'Verification of documents and compliance with rental requirements.',
+                'help.item3': 'A concise summary and recommendation of the best candidates.',
+                'how.title': 'How it works',
+                'how.step1.title': '1. We define the needs',
+                'how.step1.text': 'Together we refine the rental type, location, and tenant expectations.',
+                'how.step2.title': '2. Candidate screening',
+                'how.step2.text': 'I review applications and prepare a shortlist of matched candidates.',
+                'how.step3.title': '3. Recommendation',
+                'how.step3.text': 'You receive a candidate summary with key information and my recommendation.',
+                'fees.title': 'Compensation',
+                'fees.text': 'I do not charge any commission from rent or deposit. The fee is fixed and does not depend on whether a contract is signed.',
+                'info.title': 'Important information',
+                'info.item1': 'The final decision on choosing a tenant belongs to the owner.',
+                'info.item2': 'Recommendations are prepared based on information provided by candidates.',
+                'info.item3': 'The service does not include signing contracts or representing the parties.',
+                'info.note': 'Support is informational and advisory, helping to keep the rental process organized.',
+                'pricing.title': 'Pricing – candidate screening and recommendation',
+                'pricing.basic': 'Initial screening based on the submitted criteria and documents.',
+                'pricing.standard': 'Screening with short interviews and a summary for the owner.',
+                'pricing.premium': 'Extended screening with additional recommendations and guidance on next steps.',
+                'contact.title': 'Contact',
+                'contact.phone': '+49 176 70167819',
+                'contact.email': 'kontakt@deneeu.pl',
+                'disclaimer': 'Deneeu is not a real estate agency and does not provide brokerage services. The rental decision belongs solely to the owner.',
+                'footer.about.title': 'About us',
+                'footer.about.disclaimer': 'The service is advisory and organizational in nature. I am not a party to the rental agreement. I do not guarantee finding an apartment, but I will make every effort to help with the relocation process and handling formalities.',
+                'footer.links.title': 'Links',
+                'footer.links.privacy': 'Privacy policy',
+                'footer.links.terms': 'Terms and conditions',
+                'footer.legal': 'Deneeu is not a real estate agency and does not provide brokerage services. The rental decision belongs solely to the owner.',
+                'footer.copyright': '© 2024 NL•DE Relocation. All rights reserved.'
+            },
+            de: {
+                'nav.logo': 'NL•DE Relocation',
+                'nav.offer': 'Angebote',
+                'nav.how': 'Wie es funktioniert',
+                'nav.faq': 'FAQ',
+                'nav.landlord': 'Sind Sie Vermieter?',
+                'nav.contact': 'Kontakt',
+                'hero.title': 'Haben Sie eine Wohnung zu vermieten?',
+                'hero.intro': 'Wenn Sie den passenden Mieter finden und sicher sein möchten, dass der Kandidat Ihren Erwartungen entspricht, kann ich helfen. Ich arbeite schnell, gebe klare Empfehlungen und sorge für reibungslose Kommunikation zwischen den Parteien.',
+                'help.title': 'Wie ich helfen kann',
+                'help.item1': 'Auswahl von Kandidaten anhand Ihrer Kriterien.',
+                'help.item2': 'Prüfung der Unterlagen und Übereinstimmung mit den Mietanforderungen.',
+                'help.item3': 'Kurze Zusammenfassung und Empfehlung der besten Kandidaten.',
+                'how.title': 'So funktioniert es',
+                'how.step1.title': '1. Wir klären die Bedürfnisse',
+                'how.step1.text': 'Gemeinsam präzisieren wir Miettyp, Standort und Erwartungen an den Mieter.',
+                'how.step2.title': '2. Auswahl der Kandidaten',
+                'how.step2.text': 'Ich prüfe Anfragen und erstelle eine kurze Liste passender Personen.',
+                'how.step3.title': '3. Empfehlung',
+                'how.step3.text': 'Sie erhalten eine Übersicht der Kandidaten mit den wichtigsten Informationen und meiner Empfehlung.',
+                'fees.title': 'Vergütung',
+                'fees.text': 'Ich erhebe keine Provision auf Miete oder Kaution. Die Vergütung ist fest und hängt nicht vom Zustandekommen eines Vertrags ab.',
+                'info.title': 'Wichtige Informationen',
+                'info.item1': 'Die endgültige Entscheidung über den Mieter liegt beim Eigentümer.',
+                'info.item2': 'Empfehlungen basieren auf den von den Kandidaten bereitgestellten Informationen.',
+                'info.item3': 'Der Service umfasst keine Vertragsunterzeichnung oder Vertretung der Parteien.',
+                'info.note': 'Die Unterstützung hat informativen und beratenden Charakter und hilft, den Vermietungsprozess zu ordnen.',
+                'pricing.title': 'Preise – Auswahl und Empfehlung von Kandidaten',
+                'pricing.basic': 'Erste Auswahl basierend auf eingereichten Kriterien und Unterlagen.',
+                'pricing.standard': 'Auswahl mit kurzen Gesprächen und einer Zusammenfassung für den Eigentümer.',
+                'pricing.premium': 'Erweiterte Auswahl mit zusätzlichen Empfehlungen und Unterstützung bei den nächsten Schritten.',
+                'contact.title': 'Kontakt',
+                'contact.phone': '+49 176 70167819',
+                'contact.email': 'kontakt@deneeu.pl',
+                'disclaimer': 'Deneeu ist keine Immobilienagentur und erbringt keine Maklerleistungen. Die Mietentscheidung liegt ausschließlich beim Eigentümer.',
+                'footer.about.title': 'Über uns',
+                'footer.about.disclaimer': 'Der Service ist beratender und organisatorischer Natur. Ich bin kein Vertragspartner des Mietvertrags. Ich garantiere nicht die Wohnungssuche, werde aber mein Bestes tun, um beim Umzugsprozess und bei Formalitäten zu helfen.',
+                'footer.links.title': 'Links',
+                'footer.links.privacy': 'Datenschutzrichtlinie',
+                'footer.links.terms': 'Nutzungsbedingungen',
+                'footer.legal': 'Deneeu ist keine Immobilienagentur und erbringt keine Maklerleistungen. Die Mietentscheidung liegt ausschließlich beim Eigentümer.',
+                'footer.copyright': '© 2024 NL•DE Relocation. Alle Rechte vorbehalten.'
+            },
+            nl: {
+                'nav.logo': 'NL•DE Relocation',
+                'nav.offer': 'Aanbiedingen',
+                'nav.how': 'Hoe het werkt',
+                'nav.faq': 'FAQ',
+                'nav.landlord': 'Bent u verhuurder?',
+                'nav.contact': 'Contact',
+                'hero.title': 'Heeft u een woning te huur?',
+                'hero.intro': 'Als u de juiste huurder wilt vinden en zeker wilt zijn dat de kandidaat aan uw verwachtingen voldoet, kan ik helpen. Ik werk snel, geef duidelijke aanbevelingen en zorg voor soepele communicatie tussen de partijen.',
+                'help.title': 'Hoe ik kan helpen',
+                'help.item1': 'Selectie van kandidaten op basis van uw criteria.',
+                'help.item2': 'Controle van documenten en naleving van huureisen.',
+                'help.item3': 'Een korte samenvatting en aanbeveling van de beste kandidaten.',
+                'how.title': 'Hoe het werkt',
+                'how.step1.title': '1. We bepalen de behoeften',
+                'how.step1.text': 'Samen preciseren we het type huur, de locatie en de verwachtingen voor de huurder.',
+                'how.step2.title': '2. Selectie van kandidaten',
+                'how.step2.text': 'Ik beoordeel aanmeldingen en stel een korte lijst samen van passende kandidaten.',
+                'how.step3.title': '3. Aanbeveling',
+                'how.step3.text': 'U ontvangt een overzicht van kandidaten met de belangrijkste informatie en mijn aanbeveling.',
+                'fees.title': 'Vergoeding',
+                'fees.text': 'Ik reken geen commissie over huur of borg. De vergoeding is vast en hangt niet af van het tekenen van een contract.',
+                'info.title': 'Belangrijke informatie',
+                'info.item1': 'De uiteindelijke beslissing over de huurder ligt bij de eigenaar.',
+                'info.item2': 'Aanbevelingen worden opgesteld op basis van informatie van kandidaten.',
+                'info.item3': 'De dienst omvat geen contractondertekening of vertegenwoordiging van partijen.',
+                'info.note': 'De ondersteuning is informatief en adviserend en helpt het verhuurproces te ordenen.',
+                'pricing.title': 'Prijzen – selectie en aanbeveling van kandidaten',
+                'pricing.basic': 'Eerste selectie op basis van ingediende criteria en documenten.',
+                'pricing.standard': 'Selectie met korte gesprekken en een samenvatting voor de eigenaar.',
+                'pricing.premium': 'Uitgebreide selectie met extra aanbevelingen en begeleiding bij vervolgstappen.',
+                'contact.title': 'Contact',
+                'contact.phone': '+49 176 70167819',
+                'contact.email': 'kontakt@deneeu.pl',
+                'disclaimer': 'Deneeu is geen makelaar en levert geen bemiddelingsdiensten. De beslissing over verhuur ligt uitsluitend bij de eigenaar.',
+                'footer.about.title': 'Over ons',
+                'footer.about.disclaimer': 'De service is adviserend en organisatorisch van aard. Ik ben geen partij bij de huurovereenkomst. Ik garandeer niet het vinden van een woning, maar ik zal mijn best doen om te helpen bij het verhuisproces en het afhandelen van formaliteiten.',
+                'footer.links.title': 'Links',
+                'footer.links.privacy': 'Privacybeleid',
+                'footer.links.terms': 'Algemene voorwaarden',
+                'footer.legal': 'Deneeu is geen makelaar en levert geen bemiddelingsdiensten. De beslissing over verhuur ligt uitsluitend bij de eigenaar.',
+                'footer.copyright': '© 2024 NL•DE Relocation. Alle rechten voorbehouden.'
+            }
+        };
+
+        function setLang(lang) {
+            if (!translations[lang]) return;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach((btn) => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        const stored = localStorage.getItem('lang');
+        const browserLang = navigator.language.toLowerCase();
+        const fallbackLang = stored || (browserLang.startsWith('de') ? 'de' : browserLang.startsWith('nl') ? 'nl' : browserLang.startsWith('en') ? 'en' : 'pl');
+        setLang(fallbackLang);
+
+        document.querySelectorAll('.lang-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                setLang(btn.dataset.lang);
+            });
+        });
+
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileMenuToggle && navMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                const isOpen = navMenu.classList.toggle('active');
+                mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            navMenu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
