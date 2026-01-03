@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesteś wynajmującym? - NL•DE Relocation</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #2563eb;
+            --color-primary-dark: #1d4ed8;
+            --color-secondary: #64748b;
+            --color-text: #1e293b;
+            --color-text-light: #64748b;
+            --color-bg: #ffffff;
+            --color-bg-light: #f1f5f9;
+            --color-border: #e2e8f0;
+            --spacing: 1rem;
+            --max-width: 1200px;
+            --border-radius: 0.5rem;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: #f8fafc;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-lead {
+            color: var(--color-text-light);
+            max-width: 720px;
+            font-size: 1.05rem;
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .card {
+            background: var(--color-bg);
+            border-radius: var(--border-radius);
+            padding: 1.75rem;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
+        }
+
+        .card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .list {
+            display: grid;
+            gap: 0.75rem;
+            padding-left: 1.5rem;
+        }
+
+        .list li {
+            color: var(--color-text);
+        }
+
+        .price-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .price-card {
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            background: var(--color-bg);
+        }
+
+        .price-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            color: var(--color-text);
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--color-border);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form-note {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.75rem;
+            border-radius: 999px;
+            border: none;
+            background: var(--color-primary);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--color-primary-dark);
+        }
+
+        .hero {
+            padding: 5rem 0 4rem;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%);
+        }
+
+        .hero-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 680px;
+            color: var(--color-text-light);
+            font-size: 1.1rem;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--color-primary);
+        }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-text);
+            transition: var(--transition);
+        }
+
+        .footer {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            margin-top: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #cbd5f5;
+        }
+
+        .footer-disclaimer,
+        .footer-legal {
+            color: #cbd5f5;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-legal {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                width: 100%;
+                max-width: 320px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" aria-label="NL DE Relocation Home">
+                <img src="logo.png" alt="NL DE Relocation">
+                <span>NL•DE Relocation</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#oferta">Oferta</a></li>
+                <li><a href="index.html#jak-to-dziala">Jak to działa</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="wynajmujacy.html">Jesteś wynajmującym?</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-eyebrow">Jesteś wynajmującym?</div>
+            <h1>Masz mieszkanie na wynajem?</h1>
+            <p>Jeśli chcesz znaleźć odpowiedniego lokatora i mieć pewność, że kandydat spełnia Twoje oczekiwania, mogę w tym pomóc. Pracuję szybko, jasno przedstawiam rekomendacje i dbam o sprawną komunikację między stronami.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Jak mogę pomóc</h2>
+            <ul class="list">
+                <li>Selekcja kandydatów na podstawie Twoich kryteriów.</li>
+                <li>Weryfikacja dokumentów i zgodności z wymaganiami najmu.</li>
+                <li>Przekazanie krótkiego podsumowania i rekomendacji najlepszych kandydatów.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--color-bg-light);">
+        <div class="container">
+            <h2 class="section-title">Jak to działa</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>1. Ustalamy potrzeby</h3>
+                    <p>Wspólnie doprecyzowujemy typ najmu, lokalizację i oczekiwania wobec lokatora.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Selekcja kandydatów</h3>
+                    <p>Sprawdzam zgłoszenia i kompletuję krótką listę dopasowanych osób.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Rekomendacja</h3>
+                    <p>Otrzymujesz zestawienie kandydatów wraz z rekomendacją i najważniejszymi informacjami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Wynagrodzenie</h2>
+            <p class="section-lead">Nie pobieram prowizji od czynszu ani kaucji. Wynagrodzenie jest stałe i nie zależy od tego, czy dojdzie do podpisania umowy.</p>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--color-bg-light);">
+        <div class="container">
+            <h2 class="section-title">Ważne informacje</h2>
+            <ul class="list">
+                <li>Ostateczna decyzja o wyborze lokatora należy do właściciela.</li>
+                <li>Rekomendacje są przygotowywane na podstawie informacji dostarczonych przez kandydatów.</li>
+                <li>Usługa nie obejmuje podpisywania umów ani reprezentowania stron.</li>
+            </ul>
+            <p class="section-lead">Wsparcie ma charakter informacyjno-doradczy i pomaga w uporządkowaniu procesu najmu.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Cennik – selekcja i polecenie kandydata</h2>
+            <div class="price-grid">
+                <div class="price-card">
+                    <h3>BASIC</h3>
+                    <div class="price">200 €</div>
+                    <p>Wstępna selekcja kandydatów na podstawie przesłanych kryteriów i dokumentów.</p>
+                </div>
+                <div class="price-card">
+                    <h3>STANDARD</h3>
+                    <div class="price">300 €</div>
+                    <p>Selekcja kandydatów wraz z krótkimi rozmowami i podsumowaniem dla właściciela.</p>
+                </div>
+                <div class="price-card">
+                    <h3>PREMIUM</h3>
+                    <div class="price">400 €</div>
+                    <p>Rozszerzona selekcja z dodatkowymi rekomendacjami i wsparciem w ustaleniu kolejnych kroków.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="formularz" style="background: var(--color-bg-light);">
+        <div class="container">
+            <h2 class="section-title">Formularz</h2>
+            <form class="card" aria-label="Formularz wynajmującego">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="city">Miasto / region</label>
+                        <input type="text" id="city" name="city" placeholder="Np. Amsterdam, Berlin">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Typ nieruchomości</label>
+                        <select id="type" name="type">
+                            <option value="">Wybierz typ</option>
+                            <option value="mieszkanie">Mieszkanie</option>
+                            <option value="dom">Dom</option>
+                            <option value="pokoj">Pokój</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Od kiedy dostępne</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Kontakt</label>
+                        <input type="text" id="contact" name="contact" placeholder="Email lub numer telefonu">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 1.5rem;">
+                    <label for="preferences">Preferencje</label>
+                    <textarea id="preferences" name="preferences" placeholder="Opisz krótko, kogo szukasz oraz inne ważne informacje."></textarea>
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+                    <button type="submit" class="btn">Wyślij</button>
+                    <p class="form-note">Kontakt: <a href="mailto:kontakt@deneeu.pl">kontakt@deneeu.pl</a> · <a href="tel:+4917670167819">+49 176 70167819</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="info-box">
+                Deneeu nie jest agencją nieruchomości i nie świadczy usług pośrednictwa. Decyzja o wynajmie należy wyłącznie do właściciela.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>O nas</h4>
+                    <p class="footer-disclaimer">Usługa ma charakter doradczy i organizacyjny. Nie jestem stroną w umowie najmu. Nie gwarantuję znalezienia mieszkania, ale dołożę wszelkich starań, aby pomóc w procesie relokacji i załatwieniu formalności.</p>
+                    <p class="footer-legal">Deneeu nie jest agencją nieruchomości i nie świadczy usług pośrednictwa. Decyzja o wynajmie należy wyłącznie do właściciela.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Linki</h4>
+                    <ul class="footer-links">
+                        <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+                        <li><a href="regulamin.html">Regulamin</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 NL•DE Relocation. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileMenuToggle && navMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                const isOpen = navMenu.classList.toggle('active');
+                mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            navMenu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
