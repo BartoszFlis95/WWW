@@ -61,6 +61,31 @@
             padding: 3rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
+
+        .lang-selector {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1.5rem 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            background: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--color-primary);
+            color: #ffffff;
+            border-color: var(--color-primary);
+        }
         
         h1 {
             font-size: 2rem;
@@ -93,6 +118,10 @@
             margin-bottom: 0.5rem;
             color: var(--color-text);
         }
+
+        .terms-content.hidden {
+            display: none;
+        }
         
         @media (max-width: 768px) {
             .document {
@@ -115,51 +144,256 @@
         
         <div class="document">
             <h1>📄 REGULAMIN ŚWIADCZENIA USŁUG</h1>
-            <h2>Regulamin</h2>
-            
-            <h2>Charakter usługi</h2>
-            <p>Usługi świadczone przez Bartosz Szymon Flis mają charakter doradczy, informacyjny i administracyjny w zakresie wsparcia przy wynajmie nieruchomości oraz relokacji.</p>
+            <div class="lang-selector" aria-label="Wybór języka">
+                <button class="lang-btn active" data-lang="pl">PL</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="nl">NL</button>
+                <button class="lang-btn" data-lang="de">DE</button>
+            </div>
 
-            <h2>Charakter informacyjno-doradczy</h2>
-            <p>Usługa świadczona przez Deneeu ma charakter informacyjno-doradczy i obejmuje wsparcie w procesie wynajmu, w tym selekcję i polecenie kandydatów. Deneeu nie jest agencją nieruchomości i nie prowadzi pośrednictwa w rozumieniu prawa niemieckiego ani niderlandzkiego.</p>
-            
-            <h2>Zakres usług</h2>
-            <p>Zakres usług może obejmować m.in.:</p>
-            <ul>
-                <li>pomoc w wyszukiwaniu ofert najmu</li>
-                <li>wsparcie komunikacyjne</li>
-                <li>pomoc organizacyjną przy formalnościach</li>
-                <li>wsparcie informacyjne po zawarciu umowy</li>
-            </ul>
-            
-            <h2>Wyłączenia odpowiedzialności</h2>
-            <p>Usługodawca:</p>
-            <ul>
-                <li>nie jest stroną umów najmu</li>
-                <li>nie działa jako pośrednik nieruchomości (Makler)</li>
-                <li>nie gwarantuje znalezienia mieszkania</li>
-                <li>nie ponosi odpowiedzialności za decyzje właścicieli nieruchomości lub agencji</li>
-            </ul>
-            
-            <h2>Decyzje stron trzecich</h2>
-            <p>Decyzje dotyczące:</p>
-            <ul>
-                <li>wyboru najemcy</li>
-                <li>warunków umowy</li>
-                <li>ceny</li>
-                <li>stanu nieruchomości</li>
-            </ul>
-            <p>należą wyłącznie do właścicieli nieruchomości lub agencji.</p>
-            
-            <h2>Płatności</h2>
-            <p>Szczegóły dotyczące wynagrodzenia ustalane są indywidualnie przed rozpoczęciem usługi.</p>
-            
-            <h2>Reklamacje</h2>
-            <p>Reklamacje można składać drogą elektroniczną. Odpowiedź udzielana jest w terminie do 14 dni.</p>
-            
-            <h2>Postanowienia końcowe</h2>
-            <p>Regulamin obowiązuje od dnia publikacji na stronie internetowej.</p>
+            <div id="terms-pl" class="terms-content">
+                <h2>Regulamin świadczenia usług – deneeu.pl</h2>
+
+                <h2>1. Postanowienia ogólne</h2>
+                <p>Usługodawcą jest Bartosz Szymon Flis (dalej „Usługodawca”).</p>
+                <p>Regulamin określa zasady świadczenia usług w ramach strony deneeu.pl („Serwis”).</p>
+                <p>Kontakt z Usługodawcą odbywa się przez e-mail / telefon / WhatsApp wskazane w Serwisie.</p>
+
+                <h2>2. Charakter usług</h2>
+                <p>Usługi mają charakter informacyjno-doradczy i administracyjny – polegają na wsparciu w uporządkowaniu procesu najmu i komunikacji.</p>
+                <p>Usługodawca nie jest agencją nieruchomości i nie świadczy usług pośrednictwa (w tym w rozumieniu prawa niemieckiego i niderlandzkiego).</p>
+                <p>Usługodawca nie podpisuje umów najmu w imieniu stron ani nie podejmuje decyzji o wynajmie.</p>
+
+                <h2>3. Zakres usług</h2>
+                <p>Zakres może obejmować w szczególności:</p>
+                <ul>
+                    <li>wstępną analizę sytuacji i wymagań,</li>
+                    <li>przekazanie informacji i checklist dokumentów,</li>
+                    <li>pomoc organizacyjną i wsparcie komunikacyjne,</li>
+                    <li>przygotowanie/porządkowanie zgłoszeń i informacji,</li>
+                    <li>wstępną selekcję kandydatów i polecenie zgłoszeń (dla wynajmujących),</li>
+                    <li>wsparcie informacyjne po stronie użytkownika (bez ingerencji w umowę).</li>
+                </ul>
+
+                <h2>4. Zasady współpracy z osobami szukającymi najmu</h2>
+                <p>Usługodawca może przekazywać informacje o procesie, dokumentach oraz pomaganiu w przygotowaniu zgłoszeń.</p>
+                <p>Usługodawca nie gwarantuje znalezienia mieszkania ani zawarcia umowy najmu.</p>
+
+                <h2>5. Zasady współpracy z wynajmującymi (właścicielami)</h2>
+                <p>Usługa dla wynajmujących polega na selekcji zgłoszeń i poleceniu kandydatów zgodnie z kryteriami przekazanymi przez wynajmującego.</p>
+                <p>Decyzja o wyborze najemcy oraz warunki umowy należą wyłącznie do wynajmującego i najemcy.</p>
+                <p>Usługodawca nie negocjuje czynszu ani warunków umowy i nie pośredniczy w jej zawarciu.</p>
+
+                <h2>6. Wynagrodzenie i płatności</h2>
+                <p>Cennik usług może być wskazany w Serwisie.</p>
+                <p>Wynagrodzenie dotyczy wyłącznie wykonania usługi (np. selekcji, opracowania informacji, wsparcia organizacyjnego) i nie jest prowizją od czynszu ani kaucji.</p>
+                <p>Wynagrodzenie jest stałe i nie zależy od tego, czy dojdzie do podpisania umowy najmu.</p>
+
+                <h2>7. Wyłączenia odpowiedzialności</h2>
+                <p>Usługodawca nie odpowiada za decyzje osób trzecich (właścicieli, agencji, zarządców) ani za treść ogłoszeń.</p>
+                <p>Usługodawca nie odpowiada za stan nieruchomości, warunki umowy, wysokość opłat ani inne ustalenia między stronami.</p>
+                <p>Usługodawca nie ponosi odpowiedzialności za skuteczność wynajmu.</p>
+
+                <h2>8. Reklamacje</h2>
+                <p>Reklamacje można składać e-mailowo na adres wskazany w Serwisie. Odpowiedź zostanie udzielona w terminie do 14 dni.</p>
+
+                <h2>9. Postanowienia końcowe</h2>
+                <p>Regulamin obowiązuje od dnia publikacji w Serwisie.</p>
+                <p>Usługodawca może aktualizować regulamin – aktualna wersja jest publikowana w Serwisie.</p>
+            </div>
+
+            <div id="terms-en" class="terms-content hidden">
+                <h2>Terms of service – deneeu.pl</h2>
+
+                <h2>1. General provisions</h2>
+                <p>The service provider is Bartosz Szymon Flis (the “Provider”).</p>
+                <p>These terms define the rules for providing services via deneeu.pl (the “Service”).</p>
+                <p>Contact with the Provider is available via e-mail / phone / WhatsApp listed on the Service.</p>
+
+                <h2>2. Nature of services</h2>
+                <p>The services are informational, advisory, and administrative in nature, supporting the organization of the rental process and communication.</p>
+                <p>The Provider is not a real estate agency and does not provide brokerage services (including under German and Dutch law).</p>
+                <p>The Provider does not sign lease agreements on behalf of the parties and does not make rental decisions.</p>
+
+                <h2>3. Scope of services</h2>
+                <p>The scope may include, in particular:</p>
+                <ul>
+                    <li>initial analysis of the situation and requirements,</li>
+                    <li>sharing information and a document checklist,</li>
+                    <li>organizational assistance and communication support,</li>
+                    <li>preparing/organizing applications and information,</li>
+                    <li>preliminary candidate selection and recommendations (for landlords),</li>
+                    <li>informational support for the user (without interference in the contract).</li>
+                </ul>
+
+                <h2>4. Cooperation with people seeking a rental</h2>
+                <p>The Provider may share information about the process, documents, and help with preparing applications.</p>
+                <p>The Provider does not guarantee finding an apartment or concluding a lease agreement.</p>
+
+                <h2>5. Cooperation with landlords (owners)</h2>
+                <p>The service for landlords consists of selecting applications and recommending candidates according to criteria provided by the landlord.</p>
+                <p>The decision on the tenant and contract terms belongs solely to the landlord and tenant.</p>
+                <p>The Provider does not negotiate rent or contract terms and does not broker the conclusion of the lease.</p>
+
+                <h2>6. Remuneration and payments</h2>
+                <p>Service pricing may be listed on the Service.</p>
+                <p>The remuneration covers only the performance of the service (e.g., selection, information preparation, organizational support) and is not a commission on rent or deposit.</p>
+                <p>The remuneration is fixed and does not depend on whether a lease agreement is signed.</p>
+
+                <h2>7. Liability exclusions</h2>
+                <p>The Provider is not responsible for the decisions of third parties (owners, agencies, managers) or the content of listings.</p>
+                <p>The Provider is not responsible for the condition of the property, contract terms, fees, or other arrangements between the parties.</p>
+                <p>The Provider is not liable for the success of the rental.</p>
+
+                <h2>8. Complaints</h2>
+                <p>Complaints can be submitted via e-mail to the address listed on the Service. A response will be provided within 14 days.</p>
+
+                <h2>9. Final provisions</h2>
+                <p>These terms are effective from the date of publication on the Service.</p>
+                <p>The Provider may update the terms — the current version is published on the Service.</p>
+            </div>
+
+            <div id="terms-nl" class="terms-content hidden">
+                <h2>Algemene voorwaarden dienstverlening – deneeu.pl</h2>
+
+                <h2>1. Algemene bepalingen</h2>
+                <p>De dienstverlener is Bartosz Szymon Flis (de “Dienstverlener”).</p>
+                <p>Deze voorwaarden bepalen de regels voor het verlenen van diensten via deneeu.pl (de “Dienst”).</p>
+                <p>Contact met de Dienstverlener verloopt via e-mail / telefoon / WhatsApp zoals vermeld op de Dienst.</p>
+
+                <h2>2. Aard van de diensten</h2>
+                <p>De diensten zijn informatief, adviserend en administratief van aard en ondersteunen bij het ordenen van het verhuurproces en de communicatie.</p>
+                <p>De Dienstverlener is geen makelaar en verleent geen bemiddelingsdiensten (ook niet in de zin van het Duitse of Nederlandse recht).</p>
+                <p>De Dienstverlener ondertekent geen huurovereenkomsten namens partijen en neemt geen beslissingen over verhuur.</p>
+
+                <h2>3. Omvang van de diensten</h2>
+                <p>De omvang kan onder meer omvatten:</p>
+                <ul>
+                    <li>een eerste analyse van de situatie en wensen,</li>
+                    <li>het verstrekken van informatie en een documentenchecklist,</li>
+                    <li>organisatorische hulp en ondersteuning bij communicatie,</li>
+                    <li>het voorbereiden/ordenen van aanmeldingen en informatie,</li>
+                    <li>een eerste selectie van kandidaten en het aanbevelen van aanmeldingen (voor verhuurders),</li>
+                    <li>informatieve ondersteuning voor de gebruiker (zonder inmenging in de overeenkomst).</li>
+                </ul>
+
+                <h2>4. Samenwerking met woningzoekers</h2>
+                <p>De Dienstverlener kan informatie geven over het proces, documenten en helpen bij het voorbereiden van aanmeldingen.</p>
+                <p>De Dienstverlener garandeert geen woning of het sluiten van een huurovereenkomst.</p>
+
+                <h2>5. Samenwerking met verhuurders (eigenaren)</h2>
+                <p>De dienst voor verhuurders bestaat uit het selecteren van aanmeldingen en het aanbevelen van kandidaten volgens de criteria van de verhuurder.</p>
+                <p>De beslissing over de huurder en de contractvoorwaarden ligt uitsluitend bij verhuurder en huurder.</p>
+                <p>De Dienstverlener onderhandelt niet over huur of contractvoorwaarden en bemiddelt niet bij het sluiten van de overeenkomst.</p>
+
+                <h2>6. Vergoeding en betalingen</h2>
+                <p>De tarieven kunnen op de Dienst worden vermeld.</p>
+                <p>De vergoeding betreft uitsluitend de uitvoering van de dienst (bijv. selectie, informatievoorbereiding, organisatorische ondersteuning) en is geen commissie over huur of borg.</p>
+                <p>De vergoeding is vast en hangt niet af van het al dan niet sluiten van een huurovereenkomst.</p>
+
+                <h2>7. Aansprakelijkheidsuitsluitingen</h2>
+                <p>De Dienstverlener is niet verantwoordelijk voor beslissingen van derden (eigenaren, bureaus, beheerders) of de inhoud van advertenties.</p>
+                <p>De Dienstverlener is niet verantwoordelijk voor de staat van het pand, contractvoorwaarden, kosten of andere afspraken tussen partijen.</p>
+                <p>De Dienstverlener is niet aansprakelijk voor het succes van de verhuur.</p>
+
+                <h2>8. Klachten</h2>
+                <p>Klachten kunnen per e-mail worden ingediend via het adres vermeld op de Dienst. Een reactie wordt binnen 14 dagen gegeven.</p>
+
+                <h2>9. Slotbepalingen</h2>
+                <p>Deze voorwaarden gelden vanaf de datum van publicatie op de Dienst.</p>
+                <p>De Dienstverlener kan de voorwaarden bijwerken — de actuele versie wordt op de Dienst gepubliceerd.</p>
+            </div>
+
+            <div id="terms-de" class="terms-content hidden">
+                <h2>Allgemeine Geschäftsbedingungen – deneeu.pl</h2>
+
+                <h2>1. Allgemeine Bestimmungen</h2>
+                <p>Dienstleister ist Bartosz Szymon Flis (der „Dienstleister“).</p>
+                <p>Diese Bedingungen regeln die Erbringung von Leistungen über den Dienst deneeu.pl (der „Dienst“).</p>
+                <p>Die Kontaktaufnahme mit dem Dienstleister erfolgt per E-Mail / Telefon / WhatsApp wie im Dienst angegeben.</p>
+
+                <h2>2. Art der Leistungen</h2>
+                <p>Die Leistungen sind informativ, beratend und administrativ und unterstützen die Ordnung des Mietprozesses und der Kommunikation.</p>
+                <p>Der Dienstleister ist keine Immobilienagentur und erbringt keine Maklerleistungen (auch nicht im Sinne des deutschen oder niederländischen Rechts).</p>
+                <p>Der Dienstleister unterzeichnet keine Mietverträge im Namen der Parteien und trifft keine Entscheidungen über die Vermietung.</p>
+
+                <h2>3. Leistungsumfang</h2>
+                <p>Der Umfang kann insbesondere umfassen:</p>
+                <ul>
+                    <li>eine erste Analyse der Situation und Anforderungen,</li>
+                    <li>die Bereitstellung von Informationen und einer Dokumenten-Checkliste,</li>
+                    <li>organisatorische Hilfe und Kommunikationsunterstützung,</li>
+                    <li>Vorbereitung/Ordnung von Anfragen und Informationen,</li>
+                    <li>eine erste Auswahl von Kandidaten und Empfehlung von Bewerbungen (für Vermieter),</li>
+                    <li>informative Unterstützung für den Nutzer (ohne Eingriff in den Vertrag).</li>
+                </ul>
+
+                <h2>4. Zusammenarbeit mit Wohnungssuchenden</h2>
+                <p>Der Dienstleister kann Informationen zum Prozess und zu Dokumenten bereitstellen sowie bei der Vorbereitung von Bewerbungen helfen.</p>
+                <p>Der Dienstleister garantiert weder eine Wohnung noch den Abschluss eines Mietvertrags.</p>
+
+                <h2>5. Zusammenarbeit mit Vermietern (Eigentümern)</h2>
+                <p>Die Leistung für Vermieter umfasst die Auswahl von Bewerbungen und die Empfehlung von Kandidaten gemäß den vom Vermieter angegebenen Kriterien.</p>
+                <p>Die Entscheidung über den Mieter und die Vertragsbedingungen liegt ausschließlich bei Vermieter und Mieter.</p>
+                <p>Der Dienstleister verhandelt weder Miete noch Vertragsbedingungen und vermittelt nicht beim Vertragsabschluss.</p>
+
+                <h2>6. Vergütung und Zahlungen</h2>
+                <p>Die Preise können im Dienst angegeben sein.</p>
+                <p>Die Vergütung betrifft ausschließlich die Ausführung der Leistung (z. B. Auswahl, Informationsaufbereitung, organisatorische Unterstützung) und ist keine Provision auf Miete oder Kaution.</p>
+                <p>Die Vergütung ist fest und hängt nicht davon ab, ob ein Mietvertrag zustande kommt.</p>
+
+                <h2>7. Haftungsausschlüsse</h2>
+                <p>Der Dienstleister haftet nicht für Entscheidungen Dritter (Eigentümer, Agenturen, Verwalter) oder für den Inhalt von Anzeigen.</p>
+                <p>Der Dienstleister haftet nicht für den Zustand der Immobilie, Vertragsbedingungen, Gebühren oder andere Vereinbarungen zwischen den Parteien.</p>
+                <p>Der Dienstleister haftet nicht für den Erfolg der Vermietung.</p>
+
+                <h2>8. Beschwerden</h2>
+                <p>Beschwerden können per E-Mail an die im Dienst angegebene Adresse eingereicht werden. Eine Antwort erfolgt innerhalb von 14 Tagen.</p>
+
+                <h2>9. Schlussbestimmungen</h2>
+                <p>Diese Bedingungen gelten ab dem Datum der Veröffentlichung im Dienst.</p>
+                <p>Der Dienstleister kann die Bedingungen aktualisieren — die aktuelle Version wird im Dienst veröffentlicht.</p>
+            </div>
         </div>
     </div>
+    <script>
+        const termsLangButtons = document.querySelectorAll('.lang-btn');
+        const termsContents = document.querySelectorAll('.terms-content');
+        const supportedLangs = ['pl', 'en', 'nl', 'de'];
+
+        const setTermsLang = (lang) => {
+            if (!supportedLangs.includes(lang)) {
+                return;
+            }
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+            termsContents.forEach((content) => {
+                content.classList.toggle('hidden', content.id !== `terms-${lang}`);
+            });
+            termsLangButtons.forEach((btn) => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        };
+
+        const storedLang = localStorage.getItem('lang');
+        const browserLang = navigator.language.toLowerCase();
+        const detectedLang = storedLang && supportedLangs.includes(storedLang)
+            ? storedLang
+            : browserLang.startsWith('de')
+                ? 'de'
+                : browserLang.startsWith('nl')
+                    ? 'nl'
+                    : browserLang.startsWith('en')
+                        ? 'en'
+                        : 'pl';
+
+        setTermsLang(detectedLang);
+
+        termsLangButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                setTermsLang(btn.dataset.lang);
+            });
+        });
+    </script>
 </body>
 </html>
